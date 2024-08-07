@@ -1,0 +1,413 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <title>CSci 227: Programming Methods, Hunter College</title>
+</head>
+<STYLE>A {text-decoration: none;}
+th, td { padding: 5px; border: 1px solid black}
+table { border: 1px solid black; border-collapse: collapse}</STYLE>
+<body>
+
+
+<div style="margin: 15px;">
+    <span style= "float: left;font-size:larger"><a href="index.html">CSci 227</a></span>
+    <span style= "float: right">
+      <a href="fall24/syl.html">Syllabus</a>&nbsp;&nbsp;&nbsp;
+      <a href="fall24/resources.html">Resources</a>&nbsp;&nbsp;&nbsp;
+      <a href="fall24/work.html">Coursework</a>
+    </span>
+</div>
+
+<br>
+<br>
+<hr>
+
+<div style="margin:50px">
+
+
+<h2>CSci 227: Programming Methods<br>
+<a href="http://www.hunter.cuny.edu/csci">Department of Computer Science</a><br>
+<a href="https://hunter.cuny.edu">Hunter College</a>, <a href="https://www.cuny.edu">City University of New York</a><br>
+Fall 2024<br><br>
+</h2>
+
+<i>TL;DR: Data structures & algorithms in Python for CS Minors.</i>
+
+<br><br>
+<p>
+For questions about the course, write to: <tt>zs494 AT hunter cuny edu</tt>.<!--or visit <a href="https://stjohn.github.io/teaching/officeHours.html">office hours</a>.-->
+</p>
+
+
+
+
+<h3>Announcements:</h3>
+
+
+<ul>
+  <li>Answer keys for the final exams and semester grades are available on Blackboard.  Graded exams can be viewed on Gradescope and regrade requests can be submitted via Gradescope.  See Blackboard for more details.  Have a great summer! </li>
+
+  <li>This course is designed as a continuation of CSci 127 and aimed at computer science minors and others interested in strengthening their programming skills and knowledge of canonical data structures and algorithms.  This course can be counted towards a computer science minor, but not towards the computer science major.</li>
+  
+  <li> If you have taken the introductory programming course at Hunter (CSci 127), you can enroll directly via CUNYFirst without additional permissions.  If you took the course elsewhere, reach out to a computer science advisor about what's needed to align your previous courses to Hunter courses on your CUNYFirst record.
+  <!--
+  <li> Enrollment for the course is via CUNYFirst.  Fall enrollment opens in November.</li>
+
+  <li>Peer-Mentor Tutoring: Undergraduate Teaching Assistants (UTAs) are available to help:
+  
+    Click here to make a tutoring appointment!
+    
+    Tutoring: Monday-Friday, 11:30am to 5pm in Lab 1001G, 10th floor of the North Building.</p></li>-->
+
+</ul>
+
+<h3>Course Structure:</h3>  
+  
+  Each we have:
+  <ul>
+    <li>In-person Lecture: Wednesday 10:00-11:15am, 1001G HN.</li>
+    <li>Online Lab: asynchronous, schedule below.</li>
+    <li>In-person Quizzes: By appointment in 1001G Hunter North.</li>
+    <li>In-person Code Reviews (oral assessment): By appointment in 1001G Hunter North.</li>
+    <li><a href="fall24/ps.html">Programming Assignments</a></li>
+  </ul>
+  
+  <p>This is a <b>HYBRID</b> course which means that, in place of a second weekly meeting, you are responsible for independently working through the weekly lab found in the "Handouts" column in the Course Outline below. </p>
+
+
+<br>
+<h3>Calendar:</h3>
+
+<i>Tentative schedule, subject to change:</i>
+
+<table >
+	<tr>
+    <th style="text-align: left" colspan="2">Dates:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+		<th style="text-align: left"><b>Topics:</b></th>
+    <th style="text-align: left"><b>Handouts:&nbsp;&nbsp;&nbsp;</b></th>
+		<th style="text-align: left"><b>Coursework:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</b></th>
+		<th style="text-align: left"><b>Reading:</b></th>
+
+	</tr>
+	<tr>
+    <td rowspan="1">Week 0:</td><td>8/28-9/3</td>
+    <td>Recap:  Python Basics
+		</td>
+    <td>
+        <a href="fall24/lab0.html">Lab 0</a></td>      
+		<td> 
+
+        <a href="fall24/work.html#q0">Quiz 0</a>
+     
+    </td>
+    <td></td>
+  </tr>
+
+	<tr>
+    <td rowspan="2">Week 1:</td><td>9/4-9/10</td>
+		<td>
+      Syllabus & Class Policies; Recap of Primitive Data Types & Control Structures:  Conditionals & Loops;  Introduction to Collection Data Types:  List, Set, Tuple, and Dictionaries</td>
+    <td><a href="fall24/syl.html">Syllabus</a>,<br>
+      <a href="fall24/lab1.html">Lab 1</a>
+    </td>
+    <td>
+      <a href="fall24/ps.html#ps1">Programs 1-2</a>,<br>
+      <a href="fall24/work.html#q1">Quiz 1</a>,<br>
+      <a href="fall24/work.html#cr1">Code Review 1</a>
+    </td>
+		<td><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Sections 1.1-1.8.1, 1.10, 1.12 (Python recap)</td>
+  </tr>
+ <!-- 
+  <tr>
+    <td><span style="color:darkblue">1/31</span></td>
+    <td colspan = 5><span style="color:darkblue">Lab Opens</span></td>
+  </tr>
+  -->
+ 
+	<tr>
+    <td rowspan="2">Week 2:</td><td>9/11-9/17</td>    
+		<td>
+      More on Dictionaries & Hashing; String Methods & Traversal:  Slices, List Comprehension, Formatting String (f-strings) </td>
+    <td>
+      <a href="fall24/lab2.html">Lab 2</a>
+    </td>
+    <td>   
+      <a href="fall24/ps.html#ps3">Programs 3-5</a>,<br>    
+      <a href="fall24/work.html#q2">Quiz 2</a>,<br>
+      <a href="fall24/work.html#cr2">Code Review 2</a>
+    </td>
+  	<td><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Sections 1.8.1, 1.9 (Collection Data Types & String I/O)</td>
+  </tr>
+  
+<!--
+  <tr>
+    <td><span style="color:darkblue">2/12</span></td>
+    <td colspan = 5><span style="color:darkblue">Holiday: Lab Closed</span></td>
+  </tr>
+  -->
+  
+	<tr>
+    <td rowspan="2">Week 3:</td><td>9/18-9/24</td>    
+		<td>
+      File I/0; 
+      Introduction to Running Time Complexity
+    </td>
+    <td>
+      
+      <a href="fall24/lab3.html">Lab 3</a>
+    </td>
+    <td>  
+      <a href="fall24/ps.html#ps6">Programs 6-7</a>,<br> 
+      <a href="fall24/work.html#q3">Quiz 3</a>,<br>
+      <a href="fall24/work.html#cr3">Code Review 3</a>
+    </td>
+    <td><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Chapter 2 (running time); <br>
+    <a href="https://runestone.academy/ns/books/published/thinkcspy/Files/toctree.html">ThinkCS (127 textbook):</a> Chapter 11 (files)</td>
+	</tr>
+<!--
+  <tr>
+    <td><span style="color:darkblue">2/19</span></td>
+    <td colspan = 5><span style="color:darkblue">Holiday: Lab Closed</span></td>
+  </tr>
+-->
+
+	<tr>
+    <td rowspan="2">Week 4:</td><td>9/25-10/1</td>    
+		<td>      
+      Functions:   Parameters, Return Values; Exception Handling; Recursion</td>
+    <td>
+      <a href="fall24/lab4.html">Lab 4</a>,<br>
+      <a href="https://trinket.io/python/01f45c336a">triangle.py</a> (trinket)
+    </td>
+    <td>   
+      <a href="fall24/ps.html#ps8">Programs 8-12</a>,<br>    
+      <a href="fall24/work.html#q4">Quiz 4</a>,<br>
+      <a href="fall24/work.html#cr4">Code Review 4</a>
+    </td>
+		<td><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Sections 1.11 & 1.12 (Exception Handling & Functions), Chapter 4 (Recursion)</td>
+	</tr>  
+
+  <!--
+  <tr>
+    <td><span style="color:darkblue">2/28</span></td>
+    <td colspan = 5><span style="color:darkblue">No Lecture:  Classes Follow Monday Schedule</span></td>
+  </tr>
+  -->
+
+	<tr>
+    <td rowspan="1">Week 5:</td><td>10/2-10/8</td>
+		<td>
+      Object Oriented Programming;  Writing Proper Classes; <br>
+      Using Standard Libraries:  Survey of numpy, pandas, plotly, scipy </td>
+		<td>   
+      <a href="fall24/lab5.html">Lab 5</a>
+    </td>
+    <td>
+      <a href="fall24/ps.html#ps13">Programs 13-15</a>,<br> 
+      <a href="fall24/work.html#q5">Quiz 5</a>,<br>
+      <a href="fall24/work.html#cr5">Code Review 5</a>     
+    </td>
+		<td>
+      <a href="https://runestone.academy/ns/books/published//thinkcspy/ClassesBasics/toctree.html">Textbook:</a> Chapter 17 (Objects & Classes),<br>
+      <a href="https://runestone.academy/ns/books/published//thinkcspy/Inheritance/01-PillarsOfOop.html">ThinkCS:</a> Chapter 19 (Pillars of OOP),<br>
+    <a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Section 1.13 (OOP in Python)
+    </td>
+	</tr>
+
+	<tr>
+    <td rowspan="1">Week 6:</td><td>10/9-10/15</td>
+		<td>
+      Linear Data Structures:  Array Implementations & Linked Lists;  Stacks</td>
+		<td>
+      <a href="fall24/lab6.html">Lab 6</a>
+    </td>
+    <td>
+      <a href="fall24/ps.html#ps16">Programs 16-18</a>,<br> 
+      <a href="fall24/work.html#q6">Quiz 6</a>,<br>
+      <a href="fall24/work.html#cr6">Code Review 6</a> 
+    </td>
+    <td><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Sections 3.1-9 (Linear Data Structures:  Stacks)</td>
+  </tr>
+
+	<tr>
+    <td rowspan="1">Week 7:</td><td>10/16-10/22</td>
+		<td colspan="1">
+      More on Linear Data Structures:  Queues & Deques</td>
+    <td> 
+      <a href="fall24/lab7.html">Lab 7</a>
+    </td>
+    <td>
+      <a href="fall24/ps.html#ps19">Programs 19-20</a>,<br> 
+      <a href="fall24/work.html#q7">Quiz 7</a>,<br>
+      <a href="fall24/work.html#cr7">Code Review 7</a> 
+    </td>	 
+    <td><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Sections 3.10-18 (Linear Data Structures: Queues)</td>
+  </tr>
+
+	<tr>
+    <td rowspan="2">Week 8:</td><td>10/23-10/29</td>
+    <td>
+      Map Abstract Data Type:  Dictionaries, Maps</td>
+    <td> 
+
+      <a href="fall24/lab8.html">Lab 8</a>
+    
+    </td>
+    <td>            
+      <a href="fall24/ps.html#ps21">Programs 21-22</a>,<br> 
+      <a href="fall24/work.html#q8">Quiz 8</a>,<br>
+      <a href="fall24/work.html#cr8">Code Review 8</a> 
+    </td>	   
+    <td><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Sections 3.19-25 (Linear Data Structures: Lists)</td>
+	</tr>
+
+  <!--
+  <tr>
+    <td><span style="color:darkblue">3/29</span></td>
+    <td colspan = 5><span style="color:darkblue">Holiday: Lab Closed</span></td>
+  </tr>
+  -->
+
+	<tr>
+    <td rowspan="1">Week 9:</td><td>10/30-11/5</td>
+		<td>
+      Searching:  Sequential and Binary Search;  Searching Running Times</td>
+		<td>
+      <a href="fall24/lab9.html">Lab 9</a>
+    </td>
+    <td>  
+      <a href="fall24/ps.html#ps23">Programs 23-24</a>,<br> 
+      <a href="fall24/work.html#q9">Quiz 9</a>,<br>
+      <a href="fall24/work.html#cr9">Code Review 9</a> 
+
+    </td>    
+		<td><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Chapters 3 & 5 (Linear Data Structures & Searching and Sorting)</td>
+	</tr>
+
+	<tr>
+    <td rowspan="1">Week 10:</td><td>11/6-11/12</td>
+		<td>
+      Sorting:  2 Basic Sorts;  Using Built-In Python Sort (timsort);  Sorting Running Times</td>
+		<td> 
+      <a href="fall24/lab10.html">Lab 10</a>
+    </td>
+    <td>   
+      <a href="fall24/ps.html#ps25">Programs 25-26</a>,<br> 
+      <a href="fall24/work.html#q10">Quiz 10</a>,<br>
+      <a href="fall24/work.html#cr10">Code Review 10</a> 
+
+    </td>    
+    <td><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Chapter 5 (Searching and Sorting)</td>
+	</tr>
+
+
+	<tr> 
+    <td rowspan="2">Week 11:</td><td>11/13-11/19</td>
+		<td>
+      Tree ADT & Heaps</td>
+    <td>   
+      <a href="fall24/lab11.html">Lab 11</a>
+    </td>
+    <td> 
+      <a href="fall24/ps.html#ps25">Programs 25-26</a>,<br> 
+      <a href="fall24/work.html#q11">Quiz 11</a>,<br>
+      <a href="fall24/work.html#cr11">Code Review 11</a>
+    </td>    
+    <td><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Chapter 6 (Trees)</td>
+	</tr>
+
+<!--
+  <tr>
+    <td><span style="color:darkblue">4/22-4/30</span></td>
+    <td colspan = 5><span style="color:darkblue">Fall Break:  No Classes</span></td>
+  </tr>
+
+-->
+
+	<tr>
+    <td rowspan="1">Week 12:</td><td>11/20-11/26</td>
+		<td>
+      Binary Search Trees & 
+      Graph ADT</td>
+    <td>
+      
+      <a href="fall24/lab12.html">Lab 12</a>
+      
+    </td>
+    <td> 
+      <a href="fall24/ps.html#ps27">Programs 27-28</a>,<br>   
+      <a href="fall24/work.html#q12">Quiz 12</a>,<br>
+      <a href="fall24/work.html#cr12">Code Review 12</a>
+    </td>
+		<td><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Chapter 7 (Graphs)</td></td> 
+	</tr>  
+
+	<tr>
+    <td rowspan="1">Week 13:</td><td>11/27-12/3</td>
+		<td>
+      More on Graphs;<br>
+      Current Topics in Algorithms;<br>
+      Review </td>
+		<td>
+      
+        <a href="fall24/lab13.html">Lab 13</a>
+      
+    </td>
+    <td>  
+      <a href="fall24/ps.html#ps29">Programs 29-30</a>,<br>   
+      <a href="fall24/work.html#q13">Quiz 13</a>,<br>
+      <a href="fall24/work.html#cr13">Code Review 13</a>  
+    </td>
+    <td><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Chapter 7 (Graphs)</td></td> 
+
+	</tr>
+
+  <tr>
+    <td rowspan="1">Week 14:</td><td>12/4-12/10</td>
+		<td>
+      Binary Search Trees & 
+      Graph ADT</td>
+    <td>
+      
+      <a href="fall24/lab12.html">Lab 12</a>
+      
+    </td>
+    <td> 
+      <a href="fall24/ps.html#ps27">Programs 27-28</a>,<br>   
+      <a href="fall24/work.html#q12">Quiz 12</a>,<br>
+      <a href="fall24/work.html#cr12">Code Review 12</a>
+    </td>
+		<td><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Chapter 7 (Graphs)</td></td> 
+	</tr>  
+
+	<tr>
+    <td rowspan="1">Week 16:</td><td>12/11</td>
+    <td colspan = 1>Review (Mock Exam)</td>
+		<td>
+    </td>
+    <td>
+    </td>
+    <td></td>
+	</tr>
+
+
+
+	<tr><td>Finals</td>
+    <td><span style="color:darkblue">TBD</span></td>
+    <td colspan = 4><a href="fall24/work.html#final">Final Exam</a></td>
+	</tr>
+</table>
+
+
+</div>
+
+
+
+<div>
+<i style="float:right">(This file was last modified on 7 August 2024.)</i><br>
+</div>
+
+
+
