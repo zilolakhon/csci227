@@ -1,0 +1,99 @@
+SKELETAL NOTES (follow this template to take notes as you are working through the lab):
+
+Learning Objectives
+What are the main learning objectives for this lab?
+
+
+
+
+
+
+
+
+Submitting & Style-Checking Tools:
+What tools are used to run your program and to check it for good style?
+
+
+
+
+For future reference, write down how you are running and linting code in your IDE:
+
+
+
+Using LeetCode & HackerRank:
+Which LeetCode questions did you complete:
+
+
+Notes on HackerRank:
+
+
+
+Collections Data Types:
+What are the collection data types in Python?
+
+
+
+
+
+
+
+
+
+For each of the collection data types, give an example in Python:
+(We've filled in the first one for you):
+* sets:  my_set = {1, 31, "Python", 2024, False}
+
+
+
+
+
+
+Make a list of the methods for accessing/mutating each collection data type:
+(We've filled in the first one for you):
+* sets:  
+    - in: checks membership
+    - len: gives length of the set
+    - can take union (&), intersection (|), difference (-), subset (<=)
+
+
+
+
+
+
+
+
+FOCUS QUESTIONS (Make sure you can answer these questions when you are done with the lab):
+
+Explain what a linter does:
+
+
+
+
+Explain what the following annotations mean:
+def plusOne(self, digits: List[int]) -> List[int]
+
+
+
+
+
+What does mutable mean?  Which collection data types are mutable?  Which are immutable?
+
+
+
+
+What is the output of: 
+zero = [0]
+print(zero*5)
+counting = list(range[5])
+print(counting.reverse())
+
+
+
+
+What does pop() for the different collection types?
+
+
+
+
+
+Write the pseudocode for LeetCode 217 (Contains Duplicate) using a dictionary:
