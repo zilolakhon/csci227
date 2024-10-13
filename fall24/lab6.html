@@ -1,0 +1,183 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <title>Lab 6, CSci 227: Programming Methods, Hunter College</title>
+</head>
+<STYLE>A {text-decoration: none;}
+th, td { padding: 5px; }
+code {
+  background-color: #eeeeee;
+}
+.inline {
+  padding: 1px;
+}
+.blockcode {
+  border: 1px solid #999999;
+  display: block;
+  padding-left: 10px;
+  padding-top : 2px;
+  padding-bottom : 2px;
+  margin: 5px;
+}
+.datablock {
+  border: 1px solid #eeeeee;
+  display: block;
+  padding: 7px;
+  padding-top : 0px;
+  margin: 5px;
+}
+</STYLE>
+<body>
+
+
+<div style="margin: 15px;">
+    <span style= "float: left;font-size:larger"><a href="../spr24.html">CSci 227</a></span>
+    <span style= "float: right">
+      <a href="syl.html">Syllabus</a>&nbsp;&nbsp;&nbsp;
+      <a href="resources.html">Resources</a>&nbsp;&nbsp;&nbsp;
+      <a href="work.html">Coursework</a>
+    </span>
+</div>
+
+<br>
+<br>
+<hr>
+
+<div style="margin:50px">
+
+
+<h1>Laboratory Exercise 6
+  <br>CSci 227: Programming Methods<br>
+<a href="http://www.hunter.cuny.edu/csci">Department of Computer Science</a><br>
+<a href="https://hunter.cuny.edu">Hunter College</a>, <a href="https://www.cuny.edu">City University of New York</a><br>
+Fall 2024<br><br>
+</h1>
+
+
+
+<hr>
+
+<p><b>Learning Objectives:</b>
+  <ul>
+    <li>To understand abstraction and the role it plays in the problem-solving process.</li>
+    <li>To understand the abstract data types stack and list.</li>
+    <li>To be able to implement the ADTs list using linked lists.</li>
+  </ul>
+</p>
+
+<p><b>Software Tools Needed:</b> Web browser to access textbook and an IDE (on-line or on computer) with core Python 3.6+ loaded.</p>
+
+<!--
+<p><b>Lab Notes:</b>  Download the <a href="lab6notes.txt">outline and focus questions</a> to guide you while working through this lab. 
+These are a useful tool for note taking and as well as studying for the quizzes and final exam. </p>
+-->
+
+<hr>
+
+<h3>Abstract Data Types</h3>
+
+<p>In lecture this week, we introduced the concept of <b>Abstract Data Type (ADT)</b>
+The textbook has an overview of abstraction and ADT's:  </p>
+
+<br><br>
+
+<iframe src="https://runestone.academy/ns/books/published/pythonds3/Introduction/WhyStudyDataStructuresandAbstractDataTypes.html" title="Textbook, Section 1.5:  Abstract Data Types" height="400" width="90%"></iframe></li>
+<br><br>
+
+<p>In Chapter 3, they go into more detail than the above introduction, starting with linear data type:  stacks.  Work through sections 3.1 (introduction) to 3.6 (balanced parenthesis):  </p>
+
+<iframe src="https://runestone.academy/ns/books/published/pythonds3/BasicDS/Objectives.html" title="Textbook, Section 3.1-3.6:  Stacks" height="400" width="90%"></iframe></li>
+<br><br>
+
+<p>Using the approach in Section 3.6, try <a href="ps.html#ps17">Program 17</a>.</p>
+<br><br>
+
+<h3>Linked Lists</h3>
+
+<p>In Chapter 3, the textbook shows several different implementions for each of linear ADT's.  One of the most basic one, a linked list, in Sections 3.19 (Lists) to 3.21 (Implementation):</p>
+
+<iframe src="https://runestone.academy/ns/books/published/pythonds3/BasicDS/Lists.html
+" title="Textbook, Section 3.19-3.21:  Linked Lists" height="400" width="90%"></iframe></li>
+<br><br>
+
+<p>As shown in lecture and the textbook section above, linked lists are built up from nodes.  Here's the simple node from lecture (and many LeetCode challenges):</p>
+
+<pre><code class="blockcode">class ListNode:
+  def __init__(self, val=0, next_node=None):
+    """
+    Textbook's node class, with next_node for next (for pylint warning)
+    """
+    self.val = val
+    self.next = next_node</code></pre>
+
+<p>Each <code>ListNode</code> has two attributes:  its value and a link to the next node in the list.  We often represent this pictorially as:</p>
+
+<p><img src="lc_2_first_lst.png" height="100"></p>
+
+<p>The first node has <code>val</code> of <code>2</code> and a link to the next node which has <code>val</code> of <code>4</code>.  That node has a link to the next node and so on.  If the attribute <code>next</code> is <code>None</code>, then there's nothing after it, and it's our last item in the list.</p>
+
+<p>We can traverse a linked list in a similar fashion to our regular lists.  Say our list is stored in the variable, <code>lst_1</code>, then we can a follow a basic recipe:</p>
+
+<pre><code class="blockcode">#Initialize our counter to start at the head of the list:
+current = lst_1  
+while ( current is not None ):
+  #Do some action, like searching, updating, etc.
+  #Move to the next:
+  current = current.next
+</code></pre>
+
+<p>Let's focus on a standard example:  finding an element, <code>target</code>, in our list.  We can add the check into the template above:</p>
+
+<pre><code class="blockcode">#Initialize our counter to start at the head of the list:
+  current = lst_1  
+  found = False   
+  while ( current is not None ):
+    #Check if current node is target:
+    if current.val == target:
+      found = True
+      current = None
+    else:
+      #Move to the next:
+      current = current.next
+  </code></pre>
+
+  <p>We set a flag, <code>found</code>, to <code>False</code> before we start the loop.  If we find <code>target</code>, we will set <code>found</code> to <code>True</code>, and also set <code>current</code> to <code>None</code> so that we don't keep going through the loop since it's been found.</p>
+
+  <p>Using the template above, try <a href="ps.html#ps16">Program 16</a>.</p>
+
+
+
+
+
+<h2>Quizzes and Code Reviews</h2>
+
+There are weekly written quizzes and code reviews in 1001G, 11:30-5:30, Mondays-Fridays when classes are in session.  No appointments are needed for CSCI 227 students.  Make sure to complete Quiz 6 and Code Review 5 by Wednesday, 13 October.
+
+
+
+<h2>Additional Practice</h2>
+
+<p>For additional practice on core Python, see the HackerRank prepare series:</p>
+
+
+<blockquote><a href="https://www.hackerrank.com/domains/python">HackerRank:  Prepare  Python</a></blockquote>
+
+<p>
+Click the <code class="inline">Easy</code> option on the right hand menu, and work through their Python challenges.
+</p>
+
+<p>For more practice on using stacks to solve problems, here are some popular ones from LeetCode:</p>
+
+<ul>
+  <li><a href="https://leetcode.com/problems/add-two-numbers/">2. Add Two Numbers</a></li>
+  <li><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/">83. Remove Duplicates from Sorted List</a></li>
+  <li><a href="https://leetcode.com/problems/valid-parentheses/description/">20.  Valid Parenthesis</a></li>
+</ul>
+
+
+
+</div>
+</body>
+</html>
