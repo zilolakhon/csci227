@@ -1,0 +1,86 @@
+SKELETAL NOTES (follow this template to take notes as you are working through the lab):
+
+Learning Objectives
+What are the main learning objectives for this lab?
+
+
+
+
+
+
+Python Programming Environment
+Which programming environment did you choose to use?  
+
+
+For future reference, write down the version of Python in the environment:
+
+
+
+
+Software Accounts:
+For future reference, write down the email you used to set up your accounts:
+
+LeetCode:
+
+HackerRank:
+
+Github:
+
+For your Blackboard and Gradescope accounts, double check that you have access:
+
+Blackboard:  make sure it has your Hunter email so you get course announcements.
+
+Gradescope:  will be email you have in Blackboard.  Write csci227@hunter.cuny.edu if you use another email fo Gradescope.
+
+
+
+
+Python Recap:
+
+* Section 1.8.1:  What are the built-in atomic (primitive) data types in Python?  Give an example of each.
+
+
+
+
+* Section 1.10:  What are the control structures in Python?  Give an example of each.
+
+
+
+
+
+* Section 1.12:  How do you define a function in Python?
+
+
+
+
+
+ 
+FOCUS QUESTIONS (Make sure you can answer these questions when you are done with the lab):
+
+* What is an ADT?  How does it relate to a data structure?  
+
+
+
+
+* What is an algorithm?  
+
+
+
+
+* What does this sample code (from Section 1.10) do:
+
+word_list = ["cat", "dog", "rabbit"]
+letter_list = [ ]
+for a_word in word_list:
+    for a_letter in a_word:
+        letter_list.append(a_letter)
+print(letter_list)
+
+
+Explain in English, and trace through the code:
+
+
+
+
+
+

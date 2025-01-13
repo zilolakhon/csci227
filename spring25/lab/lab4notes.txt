@@ -1,0 +1,84 @@
+SKELETAL NOTES (follow this template to take notes as you are working through the lab):
+
+Learning Objectives
+What are the main learning objectives for this lab?
+
+
+
+
+
+
+
+The first part of the lab is functions, from the CSCI 127 textbook.  Focusing on parameters and return values, write down the key ideas from Sections 6.2, 6.4, 6.6-6.8:
+
+
+
+
+
+
+Give an example of an exception and how you can handle it in Python:
+
+
+
+
+
+
+The rest of the lab focuses on recursion, or functions that call themselves.  Write down the three laws of recursion and give an example from the textbook where you label the base case and recursive step.
+
+
+
+
+
+Explain, in non-technical English, the idea behind a binary search.  
+
+
+
+
+
+
+
+
+
+
+FOCUS QUESTIONS (Make sure you can answer these questions when you are done with the lab):
+
+
+
+Write a function that takes a sorted list of numbers and a target value and returns True if the target value and False otherwise:
+
+
+
+
+
+
+What is the running time of the below code fragment?  Give your answer in Big O notation:
+
+
+def enigma(num):
+   if num <= 2:
+      return 1
+   return 2*enigma(num-1) 
+
+
+
+What is the running time of the below code fragment?  Give your answer in Big O notation:
+
+for i in range(n):
+   total = 0
+   for j in range(n):
+      total = total+j
+   print(total)
+
+
+Given the following code fragment, what is its Big O running time?
+
+test = 0
+for i in range(n):
+   for j in range(i):
+      test = test + i * j
+A. O(n)
+B. O(n^2)
+C. O(log n)
+D. O(n^3)
+
+

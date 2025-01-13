@@ -1,0 +1,88 @@
+SKELETAL NOTES (follow this template to take notes as you are working through the lab):
+
+Learning Objectives
+What are the main learning objectives for this lab?
+
+
+
+
+
+
+
+
+
+The first part of the lab is classes, from the CSCI 127 textbook.  We will be building our own classes as the term goes on, so, as you work through these sections, make notes on:
+
+How do you create a class:
+   
+
+
+What function should you include in classes to initialize objects:
+
+
+
+How do you overload a built in operator (like +):
+
+
+
+How do you use a class you wrote to make objects:
+
+
+
+
+For your notes above, include an example from the Fraction class in the textbook.
+
+
+
+
+
+The second half of the lab is a quick overview of some of the most popular libraries for Python.  For each library, write down the import statement (include common abbreviations) and a sample of using the library:
+   
+[As an example, We filled in the pandas for you:]
+
+
+pandas:  
+   To use in program:  import pandas as pd
+   Sample (reading in a CSV to a DataFrame):  df = pd.read_csv('sample.csv')
+
+plotly.express:
+
+
+numpy:
+
+
+
+
+
+
+
+
+
+
+
+FOCUS QUESTIONS (Make sure you can answer these questions when you are done with the lab):
+
+
+
+Write a program that uses the Point class.  Your program should ask the user for the x and y coordinates for two points.  You should store the points as Point objects and compute their distance using the built-in method.
+
+
+
+
+
+Explain in English what the code below does:
+
+
+import pandas as pd
+
+in_file = input("Enter a input file name: ")
+out_file = input ("Enter an output file name: ")
+
+df = pd.read_csv(in_file)
+
+#Select senators (rows where senate_class is non-empty)
+df = df[ df['senate_class'].notnull() ]
+#Keep only the first two columns
+df = df[ ['first_name','last_name'] ]
+df.to_csv(out_file,index=False)
+
