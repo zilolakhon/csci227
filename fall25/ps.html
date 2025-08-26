@@ -1,0 +1,179 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <title>Programming Assignments, CSci 227: Programming Methods, Hunter College</title>
+</head>
+<STYLE>A {text-decoration: none;}
+th, td { padding: 5px; }
+code {
+  background-color: #eeeeee;
+}
+.inline {
+  padding: 1px;
+}
+.blockcode {
+  border: 1px solid #999999;
+  display: block;
+  padding-left: 10px;
+  padding-top : 2px;
+  padding-bottom : 2px;
+  margin: 5px;
+}
+.datablock {
+  border: 1px solid #eeeeee;
+  display: block;
+  padding: 7px;
+  padding-top : 0px;
+  margin: 5px;
+}
+</STYLE>
+<body>
+
+
+<div style="margin: 15px;">
+    <span style= "float: left;font-size:larger"><a href="../fall25.html">CSci 227</a></span>
+    <span style= "float: right">
+      <a href="syl.html">Syllabus</a>&nbsp;&nbsp;&nbsp;
+      <a href="resources.html">Resources</a>&nbsp;&nbsp;&nbsp;
+      <a href="work.html">Coursework</a>
+    </span>
+</div>
+
+<br>
+<br>
+<hr>
+
+<div style="margin:50px">
+
+
+<h2>Programming Assignments
+  <br>CSci 227: Programming Methods<br>
+<a href="http://www.hunter.cuny.edu/csci">Department of Computer Science</a><br>
+<a href="https://hunter.cuny.edu">Hunter College</a>, <a href="https://www.cuny.edu">City University of New York</a><br>
+Fall 2025<br><br>
+</h2>
+
+<hr>
+<p>All students registered by Wednesday, 26 August are sent a Gradescope registration invitation to the email on record on their Blackboard account.  If you did not receive the email or would like to use a different account, write to <code class="inline">ROY.DELGADO63@myhunter.cuny.edu</code>.  Include in your email that you not receive a Gradescope invitation, your preferred email, and your EmpID.  We will manually generate an invitation.  As a default, we use your name as it appears in Blackboard/CUNYFirst (to update CUNYFirst, see <a href="https://hunter.cuny.edu/students/registration/records-and-transcripts/changing-your-personal-information/">changing your personal information</a>).  If you prefer a different name for Gradescope, include it, and we will update the Gradescope registration.</p>
+
+<h3>General Notes</h3>
+
+<p>These program builds on the concepts and code developed during lecture and through the reading.  Mastery of material is assessed via
+<ul>
+  <li> Autograding of the program submitted to Gradescope, and
+  <li> Final exam on the material.  
+</ul>
+
+<!--Solutions will be available on Blackboard (<tt>Course Materials : Solutions</tt>) an hour after their respective deadline.
+-->
+
+<h4>Autograder Notes</h4>
+
+<p> Submitted code must be in Python, using only the specified libraries.  The autograder expects a <code class="inline">.py</code> file and does not accept iPython notebooks.  Since all assignments are designed to be uploaded as a single file, the autograder is set up for direct file upload instead of Github.  If submitting directly (drop-and-drag onto the webpage), the file name is flexible but must have the extension <code class="inline">.py</code>.
+Also, to receive full credit, the code should be compatible with Python 3.6 (the default for the Gradescope autograders).
+
+<p>To encourage starting early on programs, bonus points are given for early submission.  A bonus, up to 10% of the program grade, are possible.  Programs submitted 48 hours early receive 1 points, prorated by hour.  For example, if you turn in the program 24 hours early, then the bonus poins are: (28 hours/48 hours)*1 points = (1/2)*1 points = 0.5 point.
+
+<p>
+To get full credit for a program, the file must include in the opening comment:
+<ul>
+    <li> Your name, as it appears in your Gradescope registration.
+    <li> The email you are using for Gradescope.
+    <li> A list of any resources you used for the program.  Include classmates and tutors that you worked with, along with any websites or tutorials that you used.  If you used no resources (other than the class notes and textbooks), then you should include the line:  "No resources used."
+</ul>
+
+For example, for the student, Thomas Hunter, the opening comment of his first program might be:
+<pre><code class="blockcode">
+"""
+Name:  Thomas Hunter
+Email: thomas.hunter1870@hunter.cuny.edu
+Resources:  Used python.org as a reminder of Python 3 print statements.
+"""
+</pre></code>
+and then followed by his Python program.
+
+
+<p>Good style accounts for 30% of the program grade.  We are following the standard <a href="https://peps.python.org/pep-0008/"target="_blank">PEP 8</a> style guide for Python code.  As part of the autograder scripts, your program is run through a static code analyser (aka a "linter").  
+<ul> 
+  <li> We are using <a href="https://pylint.pycqa.org/" target="_blank">Pylint</a> which reports warnings and errors, including message codes, and then scores the code on a scale from 0 to 10.  We multiply your percentage score by 3 (25% of the total) to determine the style grade.  For example, if pylint scores your program 9, your style grade is (9/10) * 2.5 = 2.25</li>   
+  <li>See the <a href="https://pylint.pycqa.org/" target="_blank">Pylint</a> website for tutorials, FAQ's and standard warnings.  </li> 
+  <li><a href="https://peps.python.org/pep-0008/" target="_blank">PEP 8</a> specifies that variable names should be at least 3 characters long, but it is long standing convention that DataFrames are named <code class=inline>df</code>.  For the autograders, we have included <code class=inline>df</code> in the "good-names" that are accepted.  This can be done locally with <code class=inline>.pylintrc</code> files or using the command-line option <code class=inline>pylint --good-names=df</code>.</li>
+  <li>Most IDE's have linting available:  for example, see <a href="https://plugins.jetbrains.com/plugin/11084-pylint" target="_blank">pylint in PyCharm</a> and <a href="https://code.visualstudio.com/docs/python/linting" target="_blank">Linting Python in VSCode</a>.</li>
+</ul>
+</p>
+<hr>
+<br>
+<h3>Programming Assignments</h3>
+
+<br>
+<ol>
+  <a id="ps1"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Friday, 29 August</b><br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab1.html">Lab 1</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b></p>
+    <p><b>Hello</b></p>
+    <p>Write a Python program that prints "Hello, World!" to the screen.  For full credit, make sure to follow Python style guide and include introductory comments.	
+  
+    <p><i>Hint:  See style & pylint in Lecture 1 and <a href="lab/lab1.html">Lab 1</a>.</i>
+  
+  <a id="ps2"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt">
+      <b >Due Date: 5pm, Tuesday, 2 September</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab1.html">Lab 1</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b>
+    </p>
+    <p><b>Leap Years</b></p>
+    <p>	
+    Write a function <code class="inline">is_leap()</code> that takes an integer between 1000 and 10,000 and returns <code class="inline">True</code> if it is leap year and <code class="inline">False</code> otherwise.  The following conditions are used to determine leap years:
+    <blockquote>
+      If the year is divisible by 4 but not divisible by 100 unless the year is divisible by 400.
+    </blockquote>
+    For example, 2000 and 2400 are leap years, while 1900 and 2100 are not leap years.
+  
+    <p>Notes:</p>
+
+    <ul>
+      <li>You should submit a file with only the standard comments at the top, the specified functions, and any helper functions you have written. The grading scripts will then import the file for testing.</li>
+      <li>If your file includes code outside of functions, either comment the code out before submitting or use a main function that is conditionally executed (see <a href="https://runestone.academy/ns/books/published//thinkcspy/Functions/mainfunction.html">Think CS: Section 6.8</a> for details).</li>
+    </ul>
+
+
+    <p><i>Hint:  See HackerRank <a href="https://www.hackerrank.com/challenges/write-a-function/">function challenge</a> from Lecture 1.</i>
+
+  <a id="ps3"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt">
+      <b>Due Date: 5pm, Friday, 5 September</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab1.html">Lab 1</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> </p>
+      
+    <p>	<b>Duplicate Names</b></p>
+    <p>
+    Write a function <code class="inline">duplicates()</code> that takes a list of names and returns a list of the names that occur more.  If there are no duplicated names, your function should return an empty list (e.g. <code class="inline">[]</code>)
+
+    <p>For example:</p>
+    <pre><code class = "blockcode">names = ['Daniel','Dorothy','Bethany','Beth','Daniel','Georgi']
+print(duplicates[names])</code></pre>
+  
+    would print:
+    <pre><code class="datablock">["Daniel"]</code></pre>
+
+
+    <p><i>Hint:  See classwork from Lecture 1 and the Program 2 notes above.</i>
+
+  </ol>
+<hr>
+
+
+
+<hr>
+
+
+
+</div>
+</body>
+</html>
