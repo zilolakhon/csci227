@@ -168,6 +168,128 @@ print(duplicates[names])</code></pre>
   </ol>
 <hr>
 
+  <a id="ps4"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt">
+      <b>Due Date: 5pm, Tuesday, 9 September</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab1.html">Lab 1</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+
+    <p><b>Unique Visitors</b></p> 
+    <p>	
+    When students visit the lab, their EmpID is stored as an 8-digit string.  Many students visit multiple times, but we are interested in the total number of unique visitors to the lab.  Write a function <code class="inline">unique_visitors()</code> that takes a list of 8-digit strings and returns the number of unique strings that occur.</p>
+    
+    <p>
+    Your function should also screen out any strings that are too long (more than 8 digits) or too short (less than 8 digits) and not include those in the final count returned.
+    </p>
+
+    <p>For example:</p>
+    <pre><code class = "blockcode">ids = ['12345678','11223344','123','12345678']
+print(f"The number of unique visitors is {unique_visitors(ids)}.")</code></pre>
+  
+    would print:
+    <pre><code class="datablock">The number of unique visitors is 2.</code></pre>
+    since there are 3 entries of the correct length but only 2 unique ones (the first and fourth entries are duplicates of each other).
+
+    <p><i>Hint:  See classwork from Lecture 1 and the Program 2 notes above.</i>
+
+  <a id="ps5"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Friday, 12 September</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab2.html">Lab 2</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+
+    <p><b>Hexadecimal Plus One</b></p> 
+
+    <p>In <a href="lab/lab2.html">Lab 2</a>, we worked through 
+    <a href="https://leetcode.com/problems/plus-one/">LC 66 (Plus One)</a>, which took a large number, represented as a list of digits and returned its value incremented by one.  For this question, write a function:</p>
+
+    <pre><code class="blockcode">def hex_plus_one(digits: List[str]) -> List[str]:</code></pre>
+
+    <p>that takes a large number stored as a list of hexadecimal digits (the characters from '0','1',...'9','A','B','C','D','E','F' representing the digits 0,1,...9,10,11,12,13,14,15) and returns the large number incremented by 1.</p>
+
+    <p>For example, if the list is <code class="inline">['1','2','F']</code>, then the function should return <code class="inline">['1','3','0']</code> since incrementing the last digit, 'F', by 1 gives 10, or '0' with a carry of 1.  The next to last digit is '2' with the carry becomes '3'.</p>
+
+    <p><i>Hint:  See <a href="lab/lab2.html">Lab 2</a>.</i>
+
+
+
+  <a id="ps6"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 16 September</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab2.html">Lab 2</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+
+    <p><b>Longest Words</b></p>    
+
+    <p>Write a program that asks the user for the names of an input file and output file.  Your program should read in the input file and for each line, write the longest word to the output file (if there are more than longest word on a line, the first is written).</p>
+
+    <p>For example, if you ran your program:
+
+    <pre><code class="blockcode">
+Enter your input file name:  milne.txt
+Enter your output file name:  longest.txt    
+    </code>
+  </pre>
+      
+      
+  If the input file, <code class="inline">milne.txt</code> contained:</p>
+
+    <pre><code class="datablock">It is more fun to talk 
+with someone who doesn't use long, 
+difficult words but rather short, 
+easy words like 'What about lunch?'
+
+--A.A. Milne</code></pre>
+
+    <p>Then the output file, <code class="inline">output.txt</code>, would contain:</p>
+
+<pre><code class="datablock">more
+someone
+difficult 
+lunch?'
+  
+--A.A.</code></pre>
+
+  <p>Note:  to simplify this program, words are contiguous characters, separated by spaces (no need to strip off punctuation marks).</p>
+
+
+
+  <a id="ps7"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesdsay, 19 September</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab2.html">Lab 2</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+
+    <p><b>Average Grades</b></p>    
+
+    <p>Write a program that asks the user for the names of an input file and output file.  Each line of the input file has a name, followed by grades, separated by spaces.  Your program should read in the input file and for each line, write the name to the output file and the average of the grades, separated by a space.</p>
+
+    <p>For example, if you ran your program:
+
+    <pre><code class="blockcode">Enter your input file name:  grades.txt
+Enter your output file name:  ave.txt</code>
+  </pre>
+      
+      
+  If the input file, <code class="inline">grades.txt</code> contained:</p>
+
+    <pre><code class="datablock">Amy 10 8 8 4 
+Beth 10 11 
+Chaaya 10 0 11 9 9 9 
+Daiyu 8 8 5 10 10 10
+Esme 3 9 6</code></pre>
+
+    <p>Then the output file, <code class="inline">ave.txt</code>, would contain:</p>
+
+<pre><code class="datablock">Amy 7.5
+Beth 10.5 
+Chaaya 8.0 
+Daiyu 8.5
+Esme 6.0</code></pre>
 
 
 <hr>
