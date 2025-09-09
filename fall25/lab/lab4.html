@@ -1,0 +1,168 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <title>Lab 4, CSci 227: Programming Methods, Hunter College</title>
+</head>
+<STYLE>A {text-decoration: none;}
+th, td { padding: 5px; }
+code {
+  background-color: #eeeeee;
+}
+.inline {
+  padding: 1px;
+}
+.blockcode {
+  border: 1px solid #999999;
+  display: block;
+  padding-left: 10px;
+  padding-top : 2px;
+  padding-bottom : 2px;
+  margin: 5px;
+}
+.datablock {
+  border: 1px solid #eeeeee;
+  display: block;
+  padding: 7px;
+  padding-top : 0px;
+  margin: 5px;
+}
+</STYLE>
+<body>
+
+
+<div style="margin: 15px;">
+    <span style= "float: left;font-size:larger"><a href="../fall25.html">CSci 227</a></span>
+    <span style= "float: right">
+      <a href="syl.html">Syllabus</a>&nbsp;&nbsp;&nbsp;
+      <a href="resources.html">Resources</a>&nbsp;&nbsp;&nbsp;
+      <a href="work.html">Coursework</a>
+    </span>
+</div>
+
+<br>
+<br>
+<hr>
+
+<div style="margin:50px">
+
+
+<h1>Laboratory Exercise 4
+  <br>CSci 227: Programming Methods<br>
+<a href="http://www.hunter.cuny.edu/csci">Department of Computer Science</a><br>
+<a href="https://hunter.cuny.edu">Hunter College</a>, <a href="https://www.cuny.edu">City University of New York</a><br>
+Fall 2025<br><br>
+</h1>
+
+
+
+<hr>
+
+
+<p><b>Learning Objectives:</b>
+  <ul>
+    <li>To use parameters, including keyword arguments, in designing functions.</li>
+    <li>To understand how to handle exceptions.</li>
+    <li>To understand that complex problems that may otherwise be difficult to solve may have a simple recursive solution.</li>
+    <li>To learn how to formulate programs recursively.</li>
+    <li>To understand and apply the three laws of recursion.</li>
+  </ul>
+</p>
+
+<p><b>Software Tools Needed:</b> Web browser to access textbook and an IDE (on-line or on computer) with core Python 3.6+ loaded.</p>
+
+<p><b>Lab Notes:</b>  Download the <a href="lab4notes.txt">outline and focus questions</a> to guide you while working through this lab. 
+These are a useful tool for note taking and as well as studying for the quizzes and final exam. </p>
+
+<hr>
+
+<h2>Parameters & Functions</h2>
+
+<p>In lecture this week, we briefly recapped parameters and functions from CSCI 127.  To test your understanding, work through the examples from the functions chapter of the CSCI 127 textbook:</p>
+
+<iframe src="https://runestone.academy/ns/books/published//thinkcspy/Functions/toctree.html" title="ThinkCS:  Chapter 6:  Functio ns" height="400" width="90%"></iframe>
+
+<p>We will go into more details on the functions calling functions section (recursion) below.</p>
+
+
+<h2>Exceptions</h2>
+
+<p>Exceptions are runtime errors that cause the end of execution.  Python, like most programming languages have a way to "handle" or "catch" exceptions, as well as "throw" exceptions if warranted.  Work through the textbook's section on exception handling:
+</p>
+
+
+<iframe src="https://runestone.academy/ns/books/published/pythonds3/Introduction/ExceptionHandling.html" title="Textbook:  Section 1.11:  Exception Handling" height="400" width="90%"></iframe>
+
+
+<h2>Recursion</h2>
+
+<p>In lecture, we showed several functions that call themselves, including the nested triangles from CSCI 127:</p>
+
+<iframe src="https://trinket.io/library/trinkets/01f45c336a" title="Nested Triangles" height="400" width="90%"></iframe>
+
+<p>Our triangle examples have a basic format:  
+  <ul>
+    <li>They first have a simple (base) case, and</li>
+  </ul>Then they have a case (or cases) that call the function again with decreasing values.
+</ul>
+
+If the first case is missing, the recursion will not stop and go on forever.  If the second case doesn't use decreasing values, then it will also go on forever.  For the recursion to work, both are needed and the book formalizes this as the Three Laws of Recursion.
+</p>
+
+<h3>Three Laws of Recursion</h3>
+
+<p>Work through the example below to see each of the laws of recurions in action:</p>
+
+<iframe src="https://runestone.academy/ns/books/published/pythonds3/Recursion/TheThreeLawsofRecursion.html" title="Textbook:  Section 4.4:  Three Laws of Recursion" height="400" width="90%"></iframe>
+
+
+<h3>Visualizing Recursion</h3>
+
+The textbook has several other visual examples of recursion:  one on trees and a more complex one of nested triangles:
+
+
+<iframe src="https://runestone.academy/ns/books/published/pythonds3/Recursion/VisualizingRecursion.html" title="Textbook:  Section 4.7:  Visualizing Recursion" height="400" width="90%"></iframe>
+
+
+
+<h3>Binary Search</h3>
+
+<p>The binary search algorithm that we saw in Classwork 4 is a canonical recursive algorithm that is useful for solving many problems (see a few in the additional practice section below).</p>
+
+<p>LeetCode has a <a href="https://leetcode.com/explore/learn/card/binary-search/">tutorial</a> on using binary search as part of their Explore series.  Work through the first template that they give and the associated problems.</p>
+
+
+
+<h2>Quizzes and Code Reviews</h2>
+
+There are weekly written quizzes and code reviews in 1001E, 11:30-5:30, Mondays-Fridays when classes are in session.  No appointments are needed for CSCI 227 students. 
+
+
+
+<h2>Additional Practice</h2>
+
+<p>For additional practice on core Python, see the HackerRank prepare series:</p>
+
+
+<blockquote><a href="https://www.hackerrank.com/domains/python">HackerRank:  Prepare  Python</a></blockquote>
+
+<p>
+Click the <code class="inline">Easy</code> option on the right hand menu, and work through their Python challenges.
+</p>
+
+
+
+<p>For more practice on using recursion to solve problems, here are some popular ones from LeetCode where using recursion is an efficient approach:</p>
+
+<ul>
+
+    <li><a href="https://leetcode.com/problems/guess-number-higher-or-lower/description/">374. Guess Number Higher or Lower</a></li>
+    <li><a href="https://leetcode.com/problems/sqrtx/description/">69.  Sqrt(x)</a></li>
+    <li><a href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/">167. Two Sum II - Input Array Is Sorted</a></li>
+</ul>
+
+
+</div>
+</body>
+</html>
