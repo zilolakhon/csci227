@@ -290,6 +290,193 @@ Daiyu 8.5
 Esme 6.0</code></pre>
 
 
+<a id="ps8"></a>
+<li > 
+  <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 23 September</b>  <br>
+    <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab2.html">Lab 2</a></b><br>
+    <b>Available Libraries:  Core Python 3.6+</b> 
+  </p>
+
+  <p><b>Proper Nouns</b></p>    
+
+  <p>Write a function that takes a string and returns a list of all words that start with capital letter.  Words in the string are separated by spaces.</p>
+
+  <pre><code class="blockcode">def find_proper_nouns(data: str) -> List[str]:</code></pre>
+
+  <p>For example, if you ran your program:
+
+  <pre><code class="blockcode">data = "Jack and Jill went up the hill."
+nouns = find_proper_nouns(data)
+print(nouns)</code></pre>
+    
+<p>Then the output would be:</p>
+
+<pre><code class="datablock">["Jack","Jill"]</code></pre>
+
+<i><p>Hints:  </p>
+  <ul>
+    <li>See notes for Program 2 about code outside of functions.</li>
+    <li>There's lots of ways to test for the first letter capital.  One easy way is if <code class="inline">word</code>, then <code class="inline">word[0] == word[0].upper()</code> will return true if the first letter is upper case.</li>
+  </ul>
+  </i>
+
+</li>
+
+
+<a id="ps9"></a>
+<li > 
+  <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Friday, 26 September</b>  <br>
+    <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 2</a> & <a href="lab3.html">Lab 3</a></b><br>
+    <b>Available Libraries:  Core Python 3.6+</b> 
+  </p>
+
+  <p><b>Anagram</b></p>    
+
+  <p>Write a function that takes two string and returns <code class="inline">True</code> if they are anagrams and <code class="inline">False</code> otherwise.  The strings will only consist of letters, and your function should be case insensitive (e.g. 'A' and 'a' are considered the same).</p>
+
+  <pre><code class="blockcode">def anagram(word_1: str, word_2: str) -> bool:</code></pre>
+
+  <p>For example, if you ran your program:
+
+  <pre><code class="blockcode">word_1 = 'coast'
+word_2 = 'water'
+word_3 = 'tacos'
+print(f'{word_1} and {word_2}:  function returns {anagram(word_1,word_2)}.')
+print(f'{word_1} and {word_3}:  function returns {anagram(word_1,word_3)}.')
+</code>
+</pre>
+    
+<p>Then the output would be:</p>
+
+<pre><code class="datablock">coast and water:  function returns False.
+coast and tacos:  function returns True.
+</code></pre>
+
+<i><p>Hints:  </p>
+  <ul>
+    <li>See notes for Program 2 about code outside of functions.</li>
+    <li>See Classwork 3 and <a href="lab3.html">Lab 3</a> where we sketch out this problem.</li>
+  </ul>
+  </i>
+
+</li>
+
+
+
+<a id="ps10"></a>
+<li > 
+  <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 30 September</b>  <br>
+    <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Chapter 2</a> & <a href="lab3.html">Lab 3</a></b><br>
+    <b>Available Libraries:  Core Python 3.6+, <tt>time</tt> </b> 
+  </p>
+
+  <p><b>Function Timer</b></p>    
+
+  <p>Following the textbook's example in Section 2.2, write a function that returns the result and time taken by an inputted function and returns the result of the function and the time it takes.  Your function should also have a keyword argument, <code class="inline">num</code>, with default value <code class="inline">10</code> that is the input when running the function.  </p>
+
+  <pre><code class="blockcode">fnc_timer(fnc, num = 10)</code></pre>
+
+  <p>For example, if you had defined the summing functions we had in lecture (and Section 2.2 of the textbook):
+
+  <pre><code class="blockcode">def sum_form(num):
+    """
+    Computes sum of first n numbers, using formula.
+    """
+    return num*(num+1)/2
+
+def sum_loop(num):
+    """
+    Computes sum of first n numbers, using loop.
+    """    
+    result = 0 
+    for iii in range(1,num+1):
+        result = result + iii
+
+    return result</code></pre>    
+
+    <p>Then we can use those functions to test the <code class="inline">fnc_timer</code>:</p>
+
+
+    <pre><code class="blockcode">
+def main():
+    """
+    Testing the timer:
+    """
+    print(f"For sum_form: {fnc_timer(sum_form)}\n")
+
+    for num in range(1000,20_000,1000):
+        result, time_taken = fnc_timer(sum_form,num=num)
+        print(f"For sum_form with num={num}, result = {result} in time {time_taken:.10f}.")
+    
+    print()
+    for num in range(1000,20_000,1000):
+        result, time_taken = fnc_timer(sum_loop,num=num)
+        print(f"For sum_loop with num={num}: result = {result} in time {time_taken:.10f}.")    
+
+if __name__ == "__main__":
+    main()
+</code>
+</pre>
+    
+<p>Then the output would be:</p>
+
+<pre><code class="datablock">For sum_form: (55.0, 1.4781951904296875e-05)
+
+For sum_form with num=1000, result = 500500.0 in time 0.0000021458.
+For sum_form with num=2000, result = 2001000.0 in time 0.0000021458.
+For sum_form with num=3000, result = 4501500.0 in time 0.0000011921.
+For sum_form with num=4000, result = 8002000.0 in time 0.0000009537.
+For sum_form with num=5000, result = 12502500.0 in time 0.0000011921.
+For sum_form with num=6000, result = 18003000.0 in time 0.0000009537.
+For sum_form with num=7000, result = 24503500.0 in time 0.0000011921.
+For sum_form with num=8000, result = 32004000.0 in time 0.0000009537.
+For sum_form with num=9000, result = 40504500.0 in time 0.0000009537.
+For sum_form with num=10000, result = 50005000.0 in time 0.0000011921.
+For sum_form with num=11000, result = 60505500.0 in time 0.0000009537.
+For sum_form with num=12000, result = 72006000.0 in time 0.0000007153.
+For sum_form with num=13000, result = 84506500.0 in time 0.0000009537.
+For sum_form with num=14000, result = 98007000.0 in time 0.0000009537.
+For sum_form with num=15000, result = 112507500.0 in time 0.0000011921.
+For sum_form with num=16000, result = 128008000.0 in time 0.0000009537.
+For sum_form with num=17000, result = 144508500.0 in time 0.0000011921.
+For sum_form with num=18000, result = 162009000.0 in time 0.0000009537.
+For sum_form with num=19000, result = 180509500.0 in time 0.0000009537.
+
+For sum_loop with num=1000: result = 500500 in time 0.0001218319.
+For sum_loop with num=2000: result = 2001000 in time 0.0002119541.
+For sum_loop with num=3000: result = 4501500 in time 0.0003182888.
+For sum_loop with num=4000: result = 8002000 in time 0.0004231930.
+For sum_loop with num=5000: result = 12502500 in time 0.0005140305.
+For sum_loop with num=6000: result = 18003000 in time 0.0006108284.
+For sum_loop with num=7000: result = 24503500 in time 0.0007030964.
+For sum_loop with num=8000: result = 32004000 in time 0.0008106232.
+For sum_loop with num=9000: result = 40504500 in time 0.0009038448.
+For sum_loop with num=10000: result = 50005000 in time 0.0010118484.
+For sum_loop with num=11000: result = 60505500 in time 0.0011117458.
+For sum_loop with num=12000: result = 72006000 in time 0.0011761189.
+For sum_loop with num=13000: result = 84506500 in time 0.0012700558.
+For sum_loop with num=14000: result = 98007000 in time 0.0013661385.
+For sum_loop with num=15000: result = 112507500 in time 0.0015220642.
+For sum_loop with num=16000: result = 128008000 in time 0.0015380383.
+For sum_loop with num=17000: result = 144508500 in time 0.0015838146.
+For sum_loop with num=18000: result = 162009000 in time 0.0016670227.
+For sum_loop with num=19000: result = 180509500 in time 0.0017712116.</code></pre>
+
+  <p>The first line comes from our first call to <code class="inline">fnc_timer</code> that uses the default value for <code class="inline">num</code> when timing the function.  The next lines are from the for-loops where we supply a value for <code class="inline">num</code>.</p>
+
+<i><p>Hints:  </p>
+  <ul>
+    <li>Don't overthink the question-- the function that you have to write is very short.  The difficulty lies in putting the pieces together (functions as arguments, using keywords) into one function.</li>
+    <li>Make sure to include the module for timing code (e.g. <code class="inline">import time</code>.)</li>
+    <li>See Section 2.2 of the textbook and Lecture 3 where we discuss timing code and Lecture 4 where we recap function arguments.</li>
+    <li>See notes for Program 2 about code outside of functions.</li>
+  </ul>
+  </i>
+
+</li>
+
+
+  
 <hr>
 
 
