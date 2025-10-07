@@ -475,6 +475,160 @@ For sum_loop with num=19000: result = 180509500 in time 0.0017712116.</code></pr
 
 </li>
 
+<a id="ps11"></a>
+<li > 
+  <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Saturday, 11 October</b>  <br>
+    <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 2</a> & <a href="lab/lab4.html">Lab 4</a></b><br>
+    <b>Available Libraries:  Core Python 3.6+</b> 
+  </p>
+
+  <p><b>Binary Search</b></p>    
+
+  <p>For Classwork 4, we traced through the pseudocode for linear search and binary search.  Convert the pseudocode for binary search into a function: </p>
+
+  <pre><code class="blockcode">def binary_search(cards, min_ind, max_ind, target):</code></pre>
+
+  <p>The pseudocode from Classwork 4:</p>
+    <tt>
+    <ol>
+      <li>If min_ind > max_ind, </li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;Return False</li>
+      <li>Let mid = (min_ind+max_ind)//2</li>
+      <li>If cards[mid] is target,</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;Return True</li>
+      <li>If cards[mid] < target,</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;Return binary_search( cards, mid+1, max_ind, target )</li>
+      <li>Return binary_search( cards, min_ind, mid-1, target )</li>
+    </ol>
+    </tt>
+
+
+  <p>For example, if you ran your program:
+
+  <pre><code class="blockcode">cards = [1,1,2,3,8,9,10,11,12]
+purples = ["amethyst","eggplant","grape","indigo","lavendar","lilac","magenta","plum","violet"]
+
+
+print(f"Is 7 in the cards? {binary_search(cards,0,len(cards)-1,7)}")
+print(f"How about 8? {binary_search(cards,0,len(cards)-1,8)}\n")
+
+print(f"Is mauve one of our purples?  {binary_search(purples, 0,len(purples)-1,'mauve')}")</code>
+</pre>
+    
+<p>Then the output would be:</p>
+
+<pre><code class="datablock">Is 7 in the cards? False
+How about 8? True
+  
+Is mauve one of our purples?  False
+</code></pre>
+
+<i><p>Hints:  </p>
+  <ul>
+    <li>See notes for Program 2 about code outside of functions.</li>
+    <li>See Classwork 4 where we sketch out this problem.</li>
+  </ul>
+  </i>
+
+</li>
+
+<a id="ps12"></a>
+<li > 
+  <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 14 October</b>  <br>
+    <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab4.html">Lab 4</a></b><br>
+    <b>Available Libraries:  Core Python 3.6+</b> 
+  </p>
+
+  <p><b>Find the Duplicate Number</b></p>    
+
+  <p></p>
+
+  <p>Given an array of integers nums containing <code class="inline">n + 1</code> integers where each integer is in the range <code class="inline">[1, n]</code> inclusive.
+    
+  <p>There is only one repeated number in nums, return this repeated number.  Your function should be:</p>
+
+  <pre><code class="blockcode">def find_duplicate(nums : List(int)) -> int:</code></pre>
+    
+  <p>Note:  You must solve the problem without modifying the array nums and uses only constant extra space.</p>
+    
+     
+  <pre>Example 1:
+    
+  Input: nums = [1,3,4,2,2]
+  Output: 2
+
+Example 2:
+    
+  Input: nums = [3,1,3,4,2]
+  Output: 3
+</pre>  
+
+
+
+
+
+<i><p>Hints:  </p>
+  <ul>
+    <li>This is LeetCode 287.  As with all the programming challenges, try to program it on your own before seeking help from the lab or on-line.</li>
+    <li>Many of the solutions you will find on-line use techniques we have not learned yet.  There is a way to do this using binary search.  Here's an approach:
+    <ul>
+      <li>All the integers in <code class="inline">nums</code> appear only once except for precisely one integer which appears two or more times.</li>
+      <li>Let's do binary search on values [1,...,n], instead of the indices (of which there's n+1, since there's a duplicate).</li>
+      <li>To find the duplicate, let's look at the middle value.  For the first example above,  
+        <code class="inline">nums = [1,3,4,2,2]</code>, it's 4/2 = 2.  How many elements are at most 2?  And how many are larger than 2?</li>
+      <li>We can compute that with a simple loop that check each value and counts those &lt;= 2.   3 entries in the list are at most 2 and 2 entries are more than 2.  So, we have 3 elements that are 1 or 2 and 2 entries that are 3 or 4. Since only one number is duplicated and we have 2 entries that are in [3,...,4], the duplicate number must be either 1 or 2.</li>
+      <li>Let's repeat our loop with guess of 1.  This time, we have 1 entry in the list with value &lt; 1 and 4 entries that are 2,3,4.  1 is not the answer.  So, it must be 2.</li>
+    </ul>
+    </li>   
+  </ul>
+  </i>
+</li>
+
+
+
+
+
+<a id="ps13"></a>
+<li > 
+  <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Friday, 17 October</b>  <br>
+    <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab4.html">Lab 4</a></b><br>
+    <b>Available Libraries:  Core Python 3.6+</b> 
+  </p>
+
+  <p><b>Median Value</b></p>    
+
+  <p></p>
+
+  <p>In lectures and labs, we have compute minimum, maximum, mean (average), and mode (most common value) for lists of numbers.  For this program, we're computing the median, or value for which half the numbers in the list are smaller and half the list are larger.  For lists of even length, we will arbitrarily choose the larger of the two middle values, if they differ.</p>
+  
+  <p>An elegant way to compute the median, is to split the list into smaller lists, say each of length 5. Find the median of each and save those to a list.  And repeat this on your new list.  If you keep repeating, you will, recursively, found the median value.</p>
+
+  <a href="https://en.wikipedia.org/wiki/Median_of_medians">
+ <img height=200 src="./image/wiki_Median_Of_Medians.png"></a><br>
+(From Wiki: <a href="https://commons.wikimedia.org/w/index.php?curid=48386302">Pashapanther</a>. )
+
+
+  <p>The pseudocode for computing the median of medians is:</p>
+    <tt>median_of_medians(nums)
+    <ol>
+      <li>Let n be the length of nums.</li>
+      <li>If n &lt;= 2, return nums[-1].  </li>
+      <li>Let med_list be an empty list.</li>
+      <li>Divide nums into n/5 sublists of length 5, except possibly the last sublist which has the remaining elements (1 to 5 of them).</li>
+      <li>For each sublist, compute median and append to med_list.</li>
+      <li>Call median_of_medians(med_list).</li>
+    </ol>
+    </tt>
+
+  <p>For this question, write the function that finds the median of lists of 5 or fewer values (that is, implement line 5 above):</p>
+
+  <pre><code class="blockcode">def median_5(nums: List) -> int:</code></pre>
+
+  <p>that takes a list of numbers of 5 (or fewer) elements and returns the median value.  If the list is of even length, it returns the larger of the two middle values.</p>
+
+  <p>For example, if <code class="inline">nums = [1,8,2,3,7]</code>, the number for that has half the elements below it and half above it is 3, so, your function would return 3.</p>
+
+  <p>For example, if <code class="inline">nums = [10,3,3,4]</code>, the values in the middle are 3 and 4, so, your function returns the larger, or 4.</p>
 
   
 <hr>
