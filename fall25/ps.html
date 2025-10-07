@@ -630,7 +630,241 @@ Example 2:
 
   <p>For example, if <code class="inline">nums = [10,3,3,4]</code>, the values in the middle are 3 and 4, so, your function returns the larger, or 4.</p>
 
+
+  <a id="ps14"></a>
+<li > 
+  <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 21 October</b>  <br>
+    <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab5.html">Lab 5</a></b><br>
+    <b>Available Libraries:  Core Python 3.6+</b> 
+  </p>
+
+  <p><b>Fraction Class</b></p>    
+
+  <p>Building on the Fraction class (<a href="fraction.py">fraction.py</a>) from <a href="lab/lab5.html">Lab 5</a>, write two functions:</p>
+
+    <ul>
+      <li><code class="inline">__eq__(self, other):</code> which returns <code class="inline">True</code> if <code class="inline">self</code> and <code class="inline">other</code> are equivalent fractions and <code class="inline">False</code> otherwise.</li>
+    
+    <li><code class="inline">__mul__(self, other):</code> which multiplies the fractions <code class="inline">self</code> and <code class="inline">other</code> and returns the simplified product.</pre></li>
+    </ul>
+
+    <p>For example, if the Fraction class is in the file <code>fraction.py</code></p>
+
+    <pre><code class="blockcode">from fraction import *
+f1 = Fraction(1, 2)
+f2 = Fraction(2, 3)
+
+f3 = f1 * f2
+print(f"{f1} times {f2} is {f3}.")
+print(f"Is f3 equivalent to f1:  {f3 == f1}.")
+</code></pre>
+
+    <p>would output:</p>
+
+    <pre><code inclass="datablock">1/2 times 2/3 is 1/3.
+Is f3 equivalent to f1:  False.</code>
+    </pre>
+
+    <i><p>Hints:  </p>
+      <ul>
+        <li>In <a href="lab/lab5.html">Lab 5</a>, we worked through the Fraction class from 
+        <a href="https://runestone.academy/ns/books/published//thinkcspy/ClassesDiggingDeeper/toctree.html">ThinkCS Chapter 18</a>.  In the textbook, addition (<code>__add__</code>) is written.  Follow that template for the functions above.</li>
+        <li>A list of the function names for arithmetic and boolean operators can be found at the end of the <a href="https://www.geeksforgeeks.org/operator-overloading-in-python/">Geeks for Geeks tutorial</a>.</li>
+      </ul>
+      </i>
+    </li>
+
+  <a id="ps15"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Monday, 17 March</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab5.html">Lab 5</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+, pandas</b> 
+    </p>
   
+    <p><b>Senators</b></p>    
+
+    <p>
+      Write a program, using the <code class = "inline">pandas</code> package, that asks the user for the name of an input CSV file and the name of an output CSV file.  The program should open the file name provided by the user.
+      Next, the program should select rows where the field <code class = "inline">senate_class</code> is non-empty and write the <code class = "inline">first_name</code> and <code class = "inline">last_name</code> to a file with the output file name provided by the user.
+      
+      <p>For example, if the file was <a href="https://theunitedstates.io/congress-legislators/legislators-current.csv">legislators-current.csv</a> with the first 3 lines of:
+      <pre><code class=datablock>last_name,first_name,middle_name,suffix,nickname,full_name,birthday,gender,type,state,district,senate_class,party,url,address,phone,contact_form,rss_url,twitter,facebook,youtube,youtube_id,bioguide_id,thomas_id,opensecrets_id,lis_id,fec_ids,cspan_id,govtrack_id,votesmart_id,ballotpedia_id,washington_post_id,icpsr_id,wikipedia_id
+Brown,Sherrod,,,,Sherrod Brown,1952-11-09,M,sen,OH,,1,Democrat,https://www.brown.senate.gov,503 Hart Senate Office Building Washington DC 20510,202-224-2315,http://www.brown.senate.gov/contact/,http://www.brown.senate.gov/rss/feeds/?type=all&amp;,SenSherrodBrown,SenatorSherrodBrown,SherrodBrownOhio,UCgy8jfERh-t_ixkKKoCmglQ,B000944,00136,N00003535,S307,"H2OH13033,S6OH00163",5051,400050,27018,Sherrod Brown,,29389,Sherrod Brown
+Cantwell,Maria,,,,Maria Cantwell,1958-10-13,F,sen,WA,,1,Democrat,https://www.cantwell.senate.gov,511 Hart Senate Office Building Washington DC 20510,202-224-3441,http://www.cantwell.senate.gov/public/index.cfm/email-maria,http://www.cantwell.senate.gov/public/index.cfm/rss/feed,SenatorCantwell,senatorcantwell,SenatorCantwell,UCN52UDqKgvHRk39ncySrIMw,C000127,00172,N00007836,S275,"S8WA00194,H2WA01054",26137,300018,27122,Maria Cantwell,,39310,Maria Cantwell</code></pre>
+      
+      Then a sample run of the program:
+      
+      <pre><code class="blockcode">Enter input file name: legislators-current.csv
+Enter output file name:  senatorNames.csv
+</code></pre>
+      
+      And the first three lines of <code class = "inline">senatorNames.csv</code> would be:
+      <pre><code class=datablock>first_name,last_name
+Sherrod,Brown
+Maria,Cantwell
+</code></pre>
+      
+<p><i>Hint:  Use pandas to read in the CSV and select the name columns.  When saving to the file, only save the columns (not the index).  For example, <code>df_out.to_csv(out_name, index=False)</code></i></p>
+  </li>
+
+  <a id="ps16"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Saturday, 25 October</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 3</a> & <a href="lab/lab6.html">Lab 6</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Linked List Search</b></p>    
+
+    <p>Using the Node class from <a href="lab/lab6.html">Lab 6</a>, write a function that searches a linked list and returns <code>True</code> if found and <code>False</code> otherwise.  Your function should be of the format:</p>
+  
+    <pre><code class="blockcode">def search_list( lst : Optional[ListNode], target : int) -> bool:</code></pre>
+    
+    where a <code>ListNode</code> is:
+
+    <pre><code class="blockcode">class ListNode:
+  def __init__(self, val=0, next_node=None):
+    self.val = val
+    self.next = next_node</code></pre>
+
+
+    <p>For example, if <code>target</code> is <code>3</code> and <code>lst_1</code> is:</p>
+
+    <p><img src="./image/lc_2_first_lst.png" height="100"></p>
+
+    <p>then <code>search_list( lst_1, target )</code> would return <code>True</code>.  Writing this in Python:</p>
+    
+    <pre><code class="datablock">lst = ListNode(2)
+lst.next = ListNode(4)
+lst.next.next = ListNode(3)
+
+print(f"Is 3 in lst?  {search_list(lst,3)}")
+print(f"Is 10 in lst?  {search_list(lst,10)}")</code></pre>
+
+    <p>The resulting output:</p>
+
+    <pre><code class="datablock">Is 3 in lst?  True
+Is 10 in lst?  False</code></pre>
+
+    <br><br>
+    <p><i>A helpful function for printing out your list:</i></p>
+
+    <pre><code class="blockcode">def list_2_str( lst ):
+  """
+  Helper function for printing out lists
+  """
+  current = lst
+  lst_str = ""
+  while current is not None:
+      lst_str = lst_str + "->" + str(current.val)
+      current = current.next
+  if len(lst_str) > 0:
+      #Get rid of leading "->" in string 
+      lst_str = lst_str[2:]
+  return lst_str</code></pre>
+
+  </li>       
+
+  <a id="ps17"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 28 October</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 3</a> & <a href="lab/lab6.html">Lab 6</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Balanced Parenthesis</b></p>    
+    
+    <p>Given a string <code>line</code> that contains alphanumeric characters as well as '(', ')', '{', '}', '[' and ']', determine if the input string is valid.</p>
+
+    <p>An input string is valid if:</p>
+      
+    <ul>
+      <li>Open brackets must be closed by the same type of brackets.</li>
+      <li>Open brackets must be closed in the correct order.</li>
+      <li>Every close bracket has a corresponding open bracket of the same type.</li>
+    </ul>
+
+    <pre><code class="blockcode">def is_valid(line: str) -> bool</code></pre>  
+
+    <p>Examples:</p>
+
+    <ol>
+      <li>If <code>line</code> is <code>print("Hello")</code>, then <code>is_valid(line)</code> returns <code>True</code> since the opening <code>(</code> is matched with <code>)</code>.</li>
+      <li>If <code>line</code> is <code>words[-1].join()</code>, then <code>is_valid(line)</code> returns <code>True</code> since the opening <code>[</code> is matched with <code>]</code> and <code>(</code> is matched with <code>)</code>.</li>
+      <li>If <code>line</code> is <code>words[0)</code>, then <code>is_valid(line)</code> returns <code>False</code> since there is an opening <code>[</code> but no matching <code>]</code>.</li>      
+      <li>If <code>line</code> is <code>(((words[0] == 'Hi') or (words[0] == 'Hello')) and (words[-1] == 'Bye'))</code>, then <code>is_valid(line)</code> returns <code>True</code> since if we look at the parentheses: <code>((()())())</code> they follow the matching rules.</li>    
+    </ol>
+
+       </p>
+    <p>Note:  This is a variation on LC 20.  See Classwork 6 in Lecture 6.</p>
+  </li> 
+
+
+  <a id="ps18"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Saturday, 1 November</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 3</a> & <a href="lab/lab6.html">Lab 6</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Increment Number</b></p>    
+    <p>Using the Node class from <a href="lab/lab6.html">Lab 6</a>, assume each <code>val</code> in a node contains a digit: <code>0</code> to <code>9</code>.  Each linked list represents a large number in reverse order.  For example, the list:</p>
+      
+    <p><img src="./image/lc_2_first_lst.png" height="100"></p>      
+    
+    <p>The smallest part, or ones column, is 2.  The tens column is 4.  And the hundreds column is 3.  So this represents 342.</p>
+
+    <p>
+      Write a function that adds one to a large number and returns the value.  Your function should be of the format:</p>
+
+    <pre><code class="blockcode">def increment_num( lst : Optional[ListNode] ) -> Optional[ListNode]:</code></pre>
+    
+    where a <code>ListNode</code> is:
+
+    <pre><code class="blockcode">class ListNode:
+  def __init__(self, val=0, next=None):
+    self.val = val
+    self.next = next</code></pre>
+
+
+    <p>For example, if <code>lst_1</code> is <code>2 -> 4 -> 3</code>,
+    then <code>increment_num( lst_1 )</code> would return a linked list with <code>3 -> 4 -> 3</code>. </p> 
+
+    <p>If <code>lst_2</code> is <code>9 -> 9 -> 1</code> 
+    then <code>increment_num( lst_2 )</code> would return a linked list with <code>0 -> 0 -> 2</code> since adding one to 199 yields 200.  
+    
+    
+    <p>Hint:  Think about what happens when a digit is <code>9</code>.  See Classwork 7 and Lecture 7 for an example of adding large numbers.</p>
+  </li> 
+
+  <a id="ps19"></a>
+
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Wednesday, 26 March</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 3</a>, <a href="lab/lab5.html">Lab 5</a> & <a href="lab/lab6.html">Lab 6</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Palindromes</b></p>    
+    
+    A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+    Given a string s, return <code>True</code> if it is a palindrome, or <code>False</code> otherwise:
+
+    <pre><code class="blockcode">def is_palindrome(input_s: str) -> bool</code></pre>  
+    
+     
+    Examples:
+    <ol>
+      <li>If <code>input_s = "A man, a plan, a canal: Panama"</code>, then the output is <code>True</code> since "amanaplanacanalpanama" is a palindrome.</li>
+      <li>If <code>input_s = "race a car"</code>, then the output is <code>False</code> since "raceacar" is not a palindrome.</li>
+      <li>If <code>input_s = " " </code>, then the output is <code>True</code> since s is an empty string "" after removing non-alphanumeric characters, and an empty string reads the same forward and backward, it is a palindrome.</li>
+    </ol>
+  
+    <p>Note:  This is LC 125.  See Classwork 6 in Lecture 6 and Classwork 7.2 in Lecture 7.</p>
+  </li>  
+
+
 <hr>
 
 
