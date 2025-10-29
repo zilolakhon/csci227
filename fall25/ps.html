@@ -1,4 +1,4 @@
-<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+.<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
 <html>
 <head>
   <meta http-equiv="Content-Type"
@@ -863,6 +863,467 @@ Is 10 in lst?  False</code></pre>
   
     <p>Note:  This is LC 125.  See Classwork 6 in Lecture 6 and Classwork 7.2 in Lecture 7.</p>
   </li>  
+
+
+  <a id="ps20"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 11 November</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 3</a> & <a href="lab/lab7.html">Lab 7</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Checkout Lines</b></p>   
+
+
+    <p>Write a function that models a  grocery store checkout lines</p>
+
+    <pre><code class="blockcode">def checkout_lines(carts: List) -> int</code></pre>  
+
+    <p>that takes a list of integers representing the number of items in customers carts and returns the amount of time it takes for all customers to checkout.</p>
+
+    <p>There are 3 checkout lines, and at each time step, one item can be processed.  Any checkout with 0 items left to process takes the next customer from <code>carts</code>.</p>
+
+    <p><b>Example:</b>  Say <code>carts = [5,1,2,4,2]</code>.</p>
+    <ul>
+      <li>At time 0, all checkers are available and we send the first 3 customers to checkers: 5,1,2 items to be processed.</li>
+      <li>At time 1, we have processed an item, so, there's 4,0,1 items. </li>
+      <li>Since Checker #2 is available, we send the next customer to them and decrease the other two checkers to get 3,4,0.  </li>
+      <li>Now, Checker #3 is available, so, we send the next customer there and decrease the other two to get 2,3,2.  </li>
+      <li>We continue sending customers to open checkers and decrementing counts until we reach 0,0,0.  
+      The function returns the total time which is 7.</li>
+    </ul>
+      
+    <p>More details:</p>
+    <table>
+      <tr><td><b>Time</b></td>
+        <td>Checker #1</td>
+        <td>Checker #2</td>
+        <td>Checker #3</td>
+      </tr>
+      <tr><td><b>0</b></td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>      
+      <tr><td><b>1</b></td>
+        <td>5</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      <tr><td><b>2</b></td>
+        <td>4</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>  
+      <tr><td><b>3</b></td>
+        <td>3</td>
+        <td>4</td>
+        <td>0</td>
+      </tr> 
+      <tr><td><b>4</b></td>
+        <td>2</td>
+        <td>3</td>
+        <td>2</td>
+      </tr>  
+      <tr><td><b>5</b></td>
+        <td>1</td>
+        <td>2</td>
+        <td>1</td>
+      </tr> 
+      <tr><td><b>6</b></td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+      </tr> 
+      <tr><td><b>7</b></td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>                                    
+    </table>  
+  
+   
+  <a id="ps21"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Saturday, 15 November</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 3</a> & <a href="lab/lab7.html">Lab 7</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Number Converter</b></p>  
+    
+    <p>In <a href="https://runestone.academy/ns/books/published/pythonds3/BasicDS/ConvertingDecimalNumberstoBinaryNumbers.html">Section 3.8</a> from Lab 7, code was developed to convert decimal numbers into binary.</p>
+
+    <p>For this program, write a function that will convert decimal numbers into other base numbers (where the base is <= 10):</p>
+
+    <pre><code class="blockcode">def number_converter(num: int, base=2:int) -> str</code></pre> 
+
+    <p>The default is to convert the number to binary (base = 2) but your function should allow the user to specify other bases.</p>
+
+    <p>For example:</p>
+
+    <pre><code class="blockcode">print(f"15 base 2 is {number_converter(15)}.")
+print(f"15 base 8 is {number_converter(15,base=8)}.")</code></pre>
+  
+    <p>would print:</p>
+
+    <pre><code class="datablock">15 base 2 is 1111.
+15 base 8 is 17.</code></pre>
+    
+ 
+  <a id="ps22"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 18 November</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 5</a> & <a href="lab/lab8.html">Lab 8</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+
+    <p><b>Find All Duplicates</b></p>
+
+    <p>Given an integer array nums of length <code>n</code> where all the integers of nums are in the range <code>[1, n]</code> and each integer appears once or twice, return an array of all the integers that appears twice.</p>
+
+    <pre><code class="blockcode">def find_all_duplicates(nums: List) -> List</code></pre>     
+
+    <p>You must write an algorithm that runs in <code>O(n)</code> time and uses only constant extra space.</p>
+    
+    <p>Examples:</p>  
+    <ol>
+      <li><pre><code class="blockcode">Input: nums = [4,3,2,7,8,2,3,1]
+Output: [2,3]</code></pre></li>
+      <li><pre><code class="blockcode">Input: nums = [1,1,2]
+Output: [1]</code></pre></li>
+      <li><pre><code class="blockcode">Input: nums = [1]
+Output: []</code></pre></li>
+    </ol>
+      
+       </p>
+
+
+    <p>Hint:  This is <a href="https://leetcode.com/problems/find-all-duplicates-in-an-array/description/">LC 442</a> (Find All Duplicates in an Array).  See <a href="lab/lab8.html">Lab 8</a>.</p>
+
+
+  <a id="ps23"></a>
+    <li > 
+      <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Saturday, 22 November</b>  <br>
+        <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 5</a> & <a href="lab/lab8.html">Lab 8</a></b><br>
+        <b>Available Libraries:  Core Python 3.6+</b> 
+      </p>
+       
+
+    <p><b>Numbers Disappeared</b></p>  
+    
+    <p>Given an array nums of <code>n</code> integers where <code>nums[i]</code> is in the range <code>[1, n]</code>, return an array of all the integers in the range <code>[1, n]</code> that do not appear in <code>nums</code>.</p>
+
+    <pre><code class="blockcode">def nums_disappeared(nums: List) -> List</code></pre>  
+
+
+    <p>Examples:</p>
+    <ol>
+      <li>
+<pre><code class="datablock">Input: nums = [4,3,2,7,8,2,3,1]
+Output: [5,6]</code></pre>
+
+      </li>
+      <li>
+<pre><code class="datablock">Input: nums = [1,1]
+Output: [2]</code></pre>
+      </li>
+    </ol>
+
+
+    <p>Hints:</p>
+    <ul>
+      
+      <li>It is very straightforward if you use extra space.  Can you do this in <code>O(n)</code> time and <code>O(1)</code> space?</li>
+      <li>This is <a href="https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/">LC 448</a> (Find All Numbers Disappeared in an Array).  See Hints at LeetCode for how to use only constant space and <a href="lab/lab8.html">Lab 8</a>.</li>
+    </ul>
+
+
+
+    
+  <a id="ps24"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 25 November</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 5</a> & <a href="lab/lab9.html">Lab 9</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Minimum in Rotated Sorted Array</b></p> 
+
+    <p>Given a sorted rotated array <code>nums</code> of unique elements, return the minimum element of this array.</p>
+    <p></p>
+    <pre><code class="blockcode">def min_rotated(nums: List) -> int</code></pre>     
+
+    <p>You must write an algorithm that runs in <code>O(log n)</code> time.</p>
+
+
+    <p>Examples:</p>
+    <ol>
+      <li><pre><code class="datablock">Input: nums = [3,4,5,1,2]
+Output: 1</code></pre>
+</li>
+<li><pre><code class="datablock">Input: nums = [4,5,6,7,0,1,2]
+Output: 0</code></pre>
+</li>
+  <li><pre><code class="datablock">Input: nums = [11,13,15,17]
+Output: 11</code></pre></li>
+
+    </ol>
+
+</p>
+
+  <p>Hint:  This is <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/">LC 153. Find Minimum in Rotated Sorted Array</a>.</p>
+    
+
+  
+  <a id="ps25"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 30 November</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 5</a> & <a href="lab/lab10.html">Lab 10</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Sort Array By Parity</b></p>        
+
+
+    <p>Given an integer array <code>nums</code>, move all the even integers at the beginning of the array followed by all the odd integers.</p>
+
+    <br>
+    <pre><code class="blockcode">def sort_by_parity(nums: List) -> List</code></pre>    
+
+    <p>Return any array that satisfies this condition.</p>
+
+    <p>Examples:</p>
+
+    <ol>
+      <li><pre><code class="datablock">Input: nums = [3,2,1,4]
+Output: [2,4,3,1]</code></pre>
+        Explanation: The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.</li>
+      <li><pre><code class="datablock">Input: nums = [0]
+Output: [0]</code></pre></li>
+    </ol>
+
+    <p>Hint:  This is <a href="https://leetcode.com/problems/sort-array-by-parity/description/">LC 905. Sort Array By Parity</a> and see <a href="lab/lab10.html">Lab 10</a>.</p>
+
+
+
+  <a id="ps26"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Thursday, 6 December</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 5</a> & <a href="lab/lab10.html">Lab 10</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Group Anagrams</b></p>  
+    
+    <p>Given an array of strings <code>strs</code>, group the anagrams together. You can return the answer in any order.</p>
+    
+    <br>
+    <pre><code class="blockcode">def group_anagram(strs: List) -> List</code></pre>     
+
+    <p>An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, using all the original letters exactly once.</p>
+      
+    <p>Examples:</p>
+    <ol>
+      <li><pre><code class="datablock">Input: strs = ["eat","tea","tan","ate","nat","bat"]
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]</code></pre></li>
+
+      <li><pre><code class="datablock">Input: strs = [""]
+Output: [[""]]</code></pre></li>
+
+      <li><pre><code class="datablock">Input: strs = ["a"]
+Output: [["a"]]</code></pre></li>
+
+    </ol>   
+
+
+    <p>Hint:  This is <a href="https://leetcode.com/problems/group-anagrams/description/">LC 49. Group Anagrams</a> and see <a href="lab/lab10.html">Lab 10</a>.</p>
+
+     
+
+  <a id="ps27"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Sunday, 9 Sunday</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 5</a> & <a href="lab/lab11.html">Lab 11</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    
+    <p><b>Kth Smallest Element</b></p> 
+
+    <p>Write a function that takes a list of numbers and returns the kth smallest number: </p>
+    
+    <br>
+    <pre><code class="blockcode">def kth_smallest(nums: List, kth = 1: int) -> int</code></pre>    
+
+    <p>Examples:</p>
+    <ol>
+      <li>If <code class>nums = [19,8,1,20,5,45,7,10]</code>, then <code>kth_smallest(nums)</code> returns <code>1</code>.</li>
+      <li>If <code class>nums = [19,8,1,20,5,45,7,10]</code>, then <code>kth_smallest(nums, kth=3)</code> returns <code>7</code>.</li>
+      <li>If <code class>nums = [30,25,20,15,10,5,0]</code>, then <code>kth_smallest(nums, kth=4)</code> returns <code>15</code>.</li>     
+    </ol> 
+    
+
+    <p>Hint:  The built-in Python library <a href="https://docs.python.org/3/library/heapq.html">heapq</a> may be useful.</p>
+
+  <a id="ps28"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 11 December</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 5</a> & <a href="lab/lab12.html">Lab 12</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>BST Insert</b></p> 
+
+    <p>You are given the root node of a binary search tree (BST) and a value to insert into the tree. Return the root node of the BST after the insertion. It is guaranteed that the new value does not exist in the original BST.</p>
+
+    <br>
+    <pre><code class="blockcode">def insert(root: TreeNode, val: int) -> TreeNode:</code></pre>     
+
+
+    <p>Notice that there may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return any of them.</p>
+
+    <p>The tree node class is:</p>
+    <pre><code class="blockcode"># Definition for a binary tree node.
+class TreeNode:
+  def __init__(self, val=0, left=None, right=None):
+    self.val = val
+    self.left = left
+    self.right = right</code></pre>
+
+
+    <p>Example:  The <code>val = 5</code> inserted into the tree:</p>
+    <img src = "./image/lc_701_insert_bst_cropped.png" height="200">
+
+    <p>The file <a href="p28_driver.py">p28_driver.py</a> contains some more examples that test the function.  The first part sets up a new tree:</p>
+
+    <pre><code class="blockcode">my_tree = None
+my_tree = insert(my_tree, 10)
+print("added first node")
+print(inorder(my_tree))</code></pre>
+
+    <p>The <code>inorder()</code> function is a helper function that prints out a node with arrows pointing to its left and right children.  Since there's only a root node to start, the left and right have no values, just parenthesis to show that they are there:</p>
+
+    <pre><code class="datablock">() <- 10 -> ()</code></pre>
+
+    <p>We can more nodes to binary search tree:</p>
+
+    <pre><code class="blockcode">some_vals = [3,5,20,15,1]
+for val in some_vals:
+    my_tree = insert(my_tree, val)
+    print(inorder(my_tree))</code></pre> 
+    
+    <p>As we loop through the list, we insert the value and then print out the modified tree:</p>
+
+    <pre><code class="datablock">(() <- 3 -> ()) <- 10 -> ()
+(() <- 3 -> (() <- 5 -> ())) <- 10 -> ()
+(() <- 3 -> (() <- 5 -> ())) <- 10 -> (() <- 20 -> ())
+(() <- 3 -> (() <- 5 -> ())) <- 10 -> ((() <- 15 -> ()) <- 20 -> ())
+((() <- 1 -> ()) <- 3 -> (() <- 5 -> ())) <- 10 -> ((() <- 15 -> ()) <- 20 -> ())</code></pre>
+
+    <p>Similarly, we can build another tree from the list, [1,2,4,8,16,32]:</p>
+
+    <pre><code>#Making another tree from [1,2,4,8,16,32]
+double_vals = [1,2,4,8,16,32]
+another_tree = None
+for val in double_vals:
+    another_tree = insert(another_tree, val)
+    print(inorder(another_tree))</code></pre>
+
+    <p>Since the values are in order, inserting into the binary search tree yields are very long, stringy tree with no left children:</p>
+
+    <pre><code class="datablock">() <- 1 -> ()
+() <- 1 -> (() <- 2 -> ())
+() <- 1 -> (() <- 2 -> (() <- 4 -> ()))
+() <- 1 -> (() <- 2 -> (() <- 4 -> (() <- 8 -> ())))
+() <- 1 -> (() <- 2 -> (() <- 4 -> (() <- 8 -> (() <- 16 -> ()))))
+() <- 1 -> (() <- 2 -> (() <- 4 -> (() <- 8 -> (() <- 16 -> (() <- 32 -> ())))))</code></pre>
+
+    <p>Hint:  This is <a href="https://leetcode.com/problems/insert-into-a-binary-search-tree/">LC 701. Insert into a Binary Search Tree</a> and see Lecture 12 and <a href="lab/lab12.html">Lab 12</a>.</p>
+
+
+
+
+  <a id="ps29"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Friday, 14 December</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 7</a> & <a href="lab/lab12.html">Lab 12</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Find the Town Judge</b></p> 
+
+    <p>In a town, there are <code>num</code> people labeled from <code>1</code> to <code>num</code>. There is a rumor that one of these people is secretly the town judge.</p>
+
+    <p>If the town judge exists, then:</p>
+    
+    <ol>
+      <li>The town judge trusts nobody.</li>
+      <li>Everybody (except for the town judge) trusts the town judge.</li>
+      <li>There is exactly one person that satisfies properties 1 and 2.</li>
+    </ol>
+    
+    <p>You are given an array trust where <code>trust[i] = [a_i, b_i]</code> representing that the person labeled <code>a_i</code> trusts the person labeled <code>b_i</code>. If a trust relationship does not exist in trust array, then such a trust relationship does not exist.</p>   
+
+    <p>Your function should be of the form :</p>
+    <pre><code class="blockcode">def find_judge(num: int, trust: List[List[int]]) -> int:</code></pre> 
+    
+    <p>and return the label of the town judge if the town judge exists and can be identified, or return <code>-1</code> otherwise.</p>
+    
+    <p>Examples:</p>
+    
+    <ol>
+      <li>Input: <code>n = 2, trust = [[1,2]]</code><br>
+      Output: <code>2</code></li>
+      <li>Input: <code>n = 3, trust = [[1,3],[2,3]]</code><br>
+      Output: <code>3</code></li></li>
+      <li>Input: <code>n = 3, trust = [[1,3],[2,3],[3,1]]</code><br>
+      Output: <code>-1</code></li></li>        
+    </ol>
+  
+    </p>
+
+    <p>Hint:  This is <a href="https://leetcode.com/problems/find-the-town-judge/description/">LC 997 (Find the Town Judge) and see Lecture 12 and <a href="lab/lab12.html">Lab 12</a>.</p>
+
+
+
+  <a id="ps30"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Saturday, 15 December</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 7</a> & <a href="lab/lab13.html">Lab 13</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Providence Size</b></p> 
+
+    <p>There are <code>n</code> cities. Some of them are connected, while some are not. If city <code>a</code> is connected directly with city <code>b</code>, and city <code>b</code> is connected directly with city <code>c</code>, then city <code>a</code> is connected indirectly with city <code>c</code>.
+    
+    <p>A <b>province</b> is a group of directly or indirectly connected cities and no other cities outside of the group.
+    </p>
+      
+    <p>You are given the number of a city, <code>num</code> and an <code>n</code> x <code>n</code> matrix <code>is_connected</code> where <code>is_connected[i][j] = 1</code> if the ith city and the jth city are directly connected, and <code>is_connected[i][j] = 0</code> otherwise.</p>
+  
+    <p>Write a function:</p>
+    <pre><code class="blockcode">def province_size(num: int, is_connected: List[List[int]]) -> int:</code></pre> 
+
+    <p>that return the total number of cities in the province containing <code>num</code>.</p>
+
+    <p>Examples:</p>
+
+    <p><img src="./image/lc_547_number_of_provinces_ex1.png" height=250></p>
+    <p>The return value is <code>2</code> for <code>num = 1</code> since there are 2 cities in the province containing <code>2</code>.  If <code>num = 3</code>, then the return is <code>1</code> since city <code>3</code> is isolated and its province contains only it.</p>
+    
+    <p><img src="./image/lc_547_number_of_provinces_ex2.png" height="250"></p>
+    <p>The return value is <code>1</code> for <code>num = 1</code> since city <code>1</code> is isolated and its province contains only it.  Similarly, the return value is also <code>1</code> for cities <code>2</code> and <code>3</code> since they are also isolated and their provinces contain only themselves.</p>
+
+    
+    <br>
+    <p>Hint:  This is a simplier version of <a href="https://leetcode.com/problems/number-of-provinces/description/">LC 547 (Number of Provinces) </a>.  See Lecture 13 and <a href="lab/lab13.html">Lab 13</a>.</p>
+
+
+</ol>
+<hr>
+
 
 
 <hr>
