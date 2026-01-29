@@ -1,0 +1,1338 @@
+.<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <title>Programming Assignments, CSci 227: Programming Methods, Hunter College</title>
+</head>
+<STYLE>A {text-decoration: none;}
+th, td { padding: 5px; }
+code {
+  background-color: #eeeeee;
+}
+.inline {
+  padding: 1px;
+}
+.blockcode {
+  border: 1px solid #999999;
+  display: block;
+  padding-left: 10px;
+  padding-top : 2px;
+  padding-bottom : 2px;
+  margin: 5px;
+}
+.datablock {
+  border: 1px solid #eeeeee;
+  display: block;
+  padding: 7px;
+  padding-top : 0px;
+  margin: 5px;
+}
+</STYLE>
+<body>
+
+
+<div style="margin: 15px;">
+    <span style= "float: left;font-size:larger"><a href="https://zilolakhon.github.io/csci227/spring26/spring26.html">CSci 227</a></span>
+    <span style= "float: right">
+      <a href="syl.html">Syllabus</a>&nbsp;&nbsp;&nbsp;
+      <a href="resources.html">Resources</a>&nbsp;&nbsp;&nbsp;
+      <a href="work.html">Coursework</a>
+    </span>
+</div>
+
+<br>
+<br>
+<hr>
+
+<div style="margin:50px">
+
+
+<h2>Programming Assignments
+  <br>CSci 227: Programming Methods<br>
+<a href="http://www.hunter.cuny.edu/csci">Department of Computer Science</a><br>
+<a href="https://hunter.cuny.edu">Hunter College</a>, <a href="https://www.cuny.edu">City University of New York</a><br>
+Spring 2026<br><br>
+</h2>
+
+<hr>
+<p>All students registered by Monday, 26 January are sent a Gradescope registration invitation to the email on record on their Brightspace account.  If you did not receive the email or would like to use a different account, write to <code class="inline">ROY.DELGADO63@myhunter.cuny.edu</code>.  Include in your email that you not receive a Gradescope invitation, your preferred email, and your EmpID.  We will manually generate an invitation.  As a default, we use your name as it appears in Brightspace/CUNYFirst (to update CUNYFirst, see <a href="https://hunter.cuny.edu/students/registration/records-and-transcripts/changing-your-personal-information/">changing your personal information</a>).  If you prefer a different name for Gradescope, include it, and we will update the Gradescope registration.</p>
+
+<h3>General Notes</h3>
+
+<p>These program builds on the concepts and code developed during lecture and through the reading.  Mastery of material is assessed via
+<ul>
+  <li> Autograding of the program submitted to Gradescope, and
+  <li> Final exam on the material.  
+</ul>
+
+<!--Solutions will be available on Blackboard (<tt>Course Materials : Solutions</tt>) an hour after their respective deadline.
+-->
+
+<h4>Autograder Notes</h4>
+
+<p> Submitted code must be in Python, using only the specified libraries.  The autograder expects a <code class="inline">.py</code> file and does not accept iPython notebooks.  Since all assignments are designed to be uploaded as a single file, the autograder is set up for direct file upload instead of Github.  If submitting directly (drop-and-drag onto the webpage), the file name is flexible but must have the extension <code class="inline">.py</code>.
+Also, to receive full credit, the code should be compatible with Python 3.6 (the default for the Gradescope autograders).
+
+<p>To encourage starting early on programs, bonus points are given for early submission.  A bonus, up to 10% of the program grade, are possible.  Programs submitted 48 hours early receive 1 points, prorated by hour.  For example, if you turn in the program 24 hours early, then the bonus poins are: (28 hours/48 hours)*1 points = (1/2)*1 points = 0.5 point.
+
+<p>
+To get full credit for a program, the file must include in the opening comment:
+<ul>
+    <li> Your name, as it appears in your Gradescope registration.
+    <li> The email you are using for Gradescope.
+    <li> A list of any resources you used for the program.  Include classmates and tutors that you worked with, along with any websites or tutorials that you used.  If you used no resources (other than the class notes and textbooks), then you should include the line:  "No resources used."
+</ul>
+
+For example, for the student, Thomas Hunter, the opening comment of his first program might be:
+<pre><code class="blockcode">
+"""
+Name:  Thomas Hunter
+Email: thomas.hunter1870@hunter.cuny.edu
+Resources:  Used python.org as a reminder of Python 3 print statements.
+"""
+</pre></code>
+and then followed by his Python program.
+
+
+<p>Good style accounts for 30% of the program grade.  We are following the standard <a href="https://peps.python.org/pep-0008/"target="_blank">PEP 8</a> style guide for Python code.  As part of the autograder scripts, your program is run through a static code analyser (aka a "linter").  
+<ul> 
+  <li> We are using <a href="https://pylint.pycqa.org/" target="_blank">Pylint</a> which reports warnings and errors, including message codes, and then scores the code on a scale from 0 to 10.  We multiply your percentage score by 3 (25% of the total) to determine the style grade.  For example, if pylint scores your program 9, your style grade is (9/10) * 2.5 = 2.25</li>   
+  <li>See the <a href="https://pylint.pycqa.org/" target="_blank">Pylint</a> website for tutorials, FAQ's and standard warnings.  </li> 
+  <li><a href="https://peps.python.org/pep-0008/" target="_blank">PEP 8</a> specifies that variable names should be at least 3 characters long, but it is long standing convention that DataFrames are named <code class=inline>df</code>.  For the autograders, we have included <code class=inline>df</code> in the "good-names" that are accepted.  This can be done locally with <code class=inline>.pylintrc</code> files or using the command-line option <code class=inline>pylint --good-names=df</code>.</li>
+  <li>Most IDE's have linting available:  for example, see <a href="https://plugins.jetbrains.com/plugin/11084-pylint" target="_blank">pylint in PyCharm</a> and <a href="https://code.visualstudio.com/docs/python/linting" target="_blank">Linting Python in VSCode</a>.</li>
+</ul>
+</p>
+<hr>
+<br>
+<h3>Programming Assignments</h3>
+
+<br>
+<ol>
+  <a id="ps1"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: TBD</b><br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab1.html">Lab 1</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b></p>
+    <p><b>Hello</b></p>
+    <p>Write a Python program that prints "Hello, World!" to the screen.  For full credit, make sure to follow Python style guide and include introductory comments.	
+  
+    <p><i>Hint:  See style & pylint in Lecture 1 and <a href="lab/lab1.html">Lab 1</a>.</i>
+  
+  <a id="ps2"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt">
+      <b >Due Date: TBD</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab1.html">Lab 1</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b>
+    </p>
+    <p><b>Leap Years</b></p>
+    <p>	
+    Write a function <code class="inline">is_leap()</code> that takes an integer between 1000 and 10,000 and returns <code class="inline">True</code> if it is leap year and <code class="inline">False</code> otherwise.  The following conditions are used to determine leap years:
+    <blockquote>
+      If the year is divisible by 4 but not divisible by 100 unless the year is divisible by 400.
+    </blockquote>
+    For example, 2000 and 2400 are leap years, while 1900 and 2100 are not leap years.
+  
+    <p>Notes:</p>
+
+    <ul>
+      <li>You should submit a file with only the standard comments at the top, the specified functions, and any helper functions you have written. The grading scripts will then import the file for testing.</li>
+      <li>If your file includes code outside of functions, either comment the code out before submitting or use a main function that is conditionally executed (see <a href="https://runestone.academy/ns/books/published//thinkcspy/Functions/mainfunction.html">Think CS: Section 6.8</a> for details).</li>
+    </ul>
+
+
+    <p><i>Hint:  See HackerRank <a href="https://www.hackerrank.com/challenges/write-a-function/">function challenge</a> from Lecture 1.</i>
+
+  <a id="ps3"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt">
+      <b>Due Date: TBD</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab1.html">Lab 1</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> </p>
+      
+    <p>	<b>Duplicate Names</b></p>
+    <p>
+    Write a function <code class="inline">duplicates()</code> that takes a list of names and returns a list of the names that occur more.  If there are no duplicated names, your function should return an empty list (e.g. <code class="inline">[]</code>)
+
+    <p>For example:</p>
+    <pre><code class = "blockcode">names = ['Daniel','Dorothy','Bethany','Beth','Daniel','Georgi']
+print(duplicates[names])</code></pre>
+  
+    would print:
+    <pre><code class="datablock">["Daniel"]</code></pre>
+
+
+    <p><i>Hint:  See classwork from Lecture 1 and the Program 2 notes above.</i>
+
+  <a id="ps4"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt">
+      <b>Due Date: TBD</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab1.html">Lab 1</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+
+    <p><b>Unique Visitors</b></p> 
+    <p>	
+    When students visit the lab, their EmpID is stored as an 8-digit string.  Many students visit multiple times, but we are interested in the total number of unique visitors to the lab.  Write a function <code class="inline">unique_visitors()</code> that takes a list of 8-digit strings and returns the number of unique strings that occur.</p>
+    
+    <p>
+    Your function should also screen out any strings that are too long (more than 8 digits) or too short (less than 8 digits) and not include those in the final count returned.
+    </p>
+
+    <p>For example:</p>
+    <pre><code class = "blockcode">ids = ['12345678','11223344','123','12345678']
+print(f"The number of unique visitors is {unique_visitors(ids)}.")</code></pre>
+  
+    would print:
+    <pre><code class="datablock">The number of unique visitors is 2.</code></pre>
+    since there are 3 entries of the correct length but only 2 unique ones (the first and fourth entries are duplicates of each other).
+
+    <p><i>Hint:  See classwork from Lecture 1 and the Program 2 notes above.</i>
+
+  <a id="ps5"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: TBD</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab2.html">Lab 2</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+
+    <p><b>Hexadecimal Plus One</b></p> 
+
+    <p>In <a href="lab/lab2.html">Lab 2</a>, we worked through 
+    <a href="https://leetcode.com/problems/plus-one/">LC 66 (Plus One)</a>, which took a large number, represented as a list of digits and returned its value incremented by one.  For this question, write a function:</p>
+
+    <pre><code class="blockcode">def hex_plus_one(digits: List[str]) -> List[str]:</code></pre>
+
+    <p>that takes a large number stored as a list of hexadecimal digits (the characters from '0','1',...'9','A','B','C','D','E','F' representing the digits 0,1,...9,10,11,12,13,14,15) and returns the large number incremented by 1.</p>
+
+    <p>For example, if the list is <code class="inline">['1','2','F']</code>, then the function should return <code class="inline">['1','3','0']</code> since incrementing the last digit, 'F', by 1 gives 10, or '0' with a carry of 1.  The next to last digit is '2' with the carry becomes '3'.</p>
+
+    <p><i>Hint:  See <a href="lab/lab2.html">Lab 2</a>.</i>
+
+<!--    
+
+
+  <a id="ps6"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 16 September</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab2.html">Lab 2</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+
+    <p><b>Longest Words</b></p>    
+
+    <p>Write a program that asks the user for the names of an input file and output file.  Your program should read in the input file and for each line, write the longest word to the output file (if there are more than longest word on a line, the first is written).</p>
+
+    <p>For example, if you ran your program:
+
+    <pre><code class="blockcode">
+Enter your input file name:  milne.txt
+Enter your output file name:  longest.txt    
+    </code>
+  </pre>
+      
+      
+  If the input file, <code class="inline">milne.txt</code> contained:</p>
+
+    <pre><code class="datablock">It is more fun to talk 
+with someone who doesn't use long, 
+difficult words but rather short, 
+easy words like 'What about lunch?'
+
+--A.A. Milne</code></pre>
+
+    <p>Then the output file, <code class="inline">output.txt</code>, would contain:</p>
+
+<pre><code class="datablock">more
+someone
+difficult 
+lunch?'
+  
+--A.A.</code></pre>
+
+  <p>Note:  to simplify this program, words are contiguous characters, separated by spaces (no need to strip off punctuation marks).</p>
+
+
+
+  <a id="ps7"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesdsay, 19 September</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab2.html">Lab 2</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+
+    <p><b>Average Grades</b></p>    
+
+    <p>Write a program that asks the user for the names of an input file and output file.  Each line of the input file has a name, followed by grades, separated by spaces.  Your program should read in the input file and for each line, write the name to the output file and the average of the grades, separated by a space.</p>
+
+    <p>For example, if you ran your program:
+
+    <pre><code class="blockcode">Enter your input file name:  grades.txt
+Enter your output file name:  ave.txt</code>
+  </pre>
+      
+      
+  If the input file, <code class="inline">grades.txt</code> contained:</p>
+
+    <pre><code class="datablock">Amy 10 8 8 4 
+Beth 10 11 
+Chaaya 10 0 11 9 9 9 
+Daiyu 8 8 5 10 10 10
+Esme 3 9 6</code></pre>
+
+    <p>Then the output file, <code class="inline">ave.txt</code>, would contain:</p>
+
+<pre><code class="datablock">Amy 7.5
+Beth 10.5 
+Chaaya 8.0 
+Daiyu 8.5
+Esme 6.0</code></pre>
+
+
+<a id="ps8"></a>
+<li > 
+  <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 23 September</b>  <br>
+    <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab2.html">Lab 2</a></b><br>
+    <b>Available Libraries:  Core Python 3.6+</b> 
+  </p>
+
+  <p><b>Proper Nouns</b></p>    
+
+  <p>Write a function that takes a string and returns a list of all words that start with capital letter.  Words in the string are separated by spaces.</p>
+
+  <pre><code class="blockcode">def find_proper_nouns(data: str) -> List[str]:</code></pre>
+
+  <p>For example, if you ran your program:
+
+  <pre><code class="blockcode">data = "Jack and Jill went up the hill."
+nouns = find_proper_nouns(data)
+print(nouns)</code></pre>
+    
+<p>Then the output would be:</p>
+
+<pre><code class="datablock">["Jack","Jill"]</code></pre>
+
+<i><p>Hints:  </p>
+  <ul>
+    <li>See notes for Program 2 about code outside of functions.</li>
+    <li>There's lots of ways to test for the first letter capital.  One easy way is if <code class="inline">word</code>, then <code class="inline">word[0] == word[0].upper()</code> will return true if the first letter is upper case.</li>
+  </ul>
+  </i>
+
+</li>
+
+
+<a id="ps9"></a>
+<li > 
+  <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Friday, 26 September</b>  <br>
+    <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 2</a> & <a href="lab3.html">Lab 3</a></b><br>
+    <b>Available Libraries:  Core Python 3.6+</b> 
+  </p>
+
+  <p><b>Anagram</b></p>    
+
+  <p>Write a function that takes two string and returns <code class="inline">True</code> if they are anagrams and <code class="inline">False</code> otherwise.  The strings will only consist of letters, and your function should be case insensitive (e.g. 'A' and 'a' are considered the same).</p>
+
+  <pre><code class="blockcode">def anagram(word_1: str, word_2: str) -> bool:</code></pre>
+
+  <p>For example, if you ran your program:
+
+  <pre><code class="blockcode">word_1 = 'coast'
+word_2 = 'water'
+word_3 = 'tacos'
+print(f'{word_1} and {word_2}:  function returns {anagram(word_1,word_2)}.')
+print(f'{word_1} and {word_3}:  function returns {anagram(word_1,word_3)}.')
+</code>
+</pre>
+    
+<p>Then the output would be:</p>
+
+<pre><code class="datablock">coast and water:  function returns False.
+coast and tacos:  function returns True.
+</code></pre>
+
+<i><p>Hints:  </p>
+  <ul>
+    <li>See notes for Program 2 about code outside of functions.</li>
+    <li>See Classwork 3 and <a href="lab3.html">Lab 3</a> where we sketch out this problem.</li>
+  </ul>
+  </i>
+
+</li>
+
+
+
+<a id="ps10"></a>
+<li > 
+  <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 30 September</b>  <br>
+    <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Chapter 2</a> & <a href="lab3.html">Lab 3</a></b><br>
+    <b>Available Libraries:  Core Python 3.6+, <tt>time</tt> </b> 
+  </p>
+
+  <p><b>Function Timer</b></p>    
+
+  <p>Following the textbook's example in Section 2.2, write a function that returns the result and time taken by an inputted function and returns the result of the function and the time it takes.  Your function should also have a keyword argument, <code class="inline">num</code>, with default value <code class="inline">10</code> that is the input when running the function.  </p>
+
+  <pre><code class="blockcode">fnc_timer(fnc, num = 10)</code></pre>
+
+  <p>For example, if you had defined the summing functions we had in lecture (and Section 2.2 of the textbook):
+
+  <pre><code class="blockcode">def sum_form(num):
+    """
+    Computes sum of first n numbers, using formula.
+    """
+    return num*(num+1)/2
+
+def sum_loop(num):
+    """
+    Computes sum of first n numbers, using loop.
+    """    
+    result = 0 
+    for iii in range(1,num+1):
+        result = result + iii
+
+    return result</code></pre>    
+
+    <p>Then we can use those functions to test the <code class="inline">fnc_timer</code>:</p>
+
+
+    <pre><code class="blockcode">
+def main():
+    """
+    Testing the timer:
+    """
+    print(f"For sum_form: {fnc_timer(sum_form)}\n")
+
+    for num in range(1000,20_000,1000):
+        result, time_taken = fnc_timer(sum_form,num=num)
+        print(f"For sum_form with num={num}, result = {result} in time {time_taken:.10f}.")
+    
+    print()
+    for num in range(1000,20_000,1000):
+        result, time_taken = fnc_timer(sum_loop,num=num)
+        print(f"For sum_loop with num={num}: result = {result} in time {time_taken:.10f}.")    
+
+if __name__ == "__main__":
+    main()
+</code>
+</pre>
+    
+<p>Then the output would be:</p>
+
+<pre><code class="datablock">For sum_form: (55.0, 1.4781951904296875e-05)
+
+For sum_form with num=1000, result = 500500.0 in time 0.0000021458.
+For sum_form with num=2000, result = 2001000.0 in time 0.0000021458.
+For sum_form with num=3000, result = 4501500.0 in time 0.0000011921.
+For sum_form with num=4000, result = 8002000.0 in time 0.0000009537.
+For sum_form with num=5000, result = 12502500.0 in time 0.0000011921.
+For sum_form with num=6000, result = 18003000.0 in time 0.0000009537.
+For sum_form with num=7000, result = 24503500.0 in time 0.0000011921.
+For sum_form with num=8000, result = 32004000.0 in time 0.0000009537.
+For sum_form with num=9000, result = 40504500.0 in time 0.0000009537.
+For sum_form with num=10000, result = 50005000.0 in time 0.0000011921.
+For sum_form with num=11000, result = 60505500.0 in time 0.0000009537.
+For sum_form with num=12000, result = 72006000.0 in time 0.0000007153.
+For sum_form with num=13000, result = 84506500.0 in time 0.0000009537.
+For sum_form with num=14000, result = 98007000.0 in time 0.0000009537.
+For sum_form with num=15000, result = 112507500.0 in time 0.0000011921.
+For sum_form with num=16000, result = 128008000.0 in time 0.0000009537.
+For sum_form with num=17000, result = 144508500.0 in time 0.0000011921.
+For sum_form with num=18000, result = 162009000.0 in time 0.0000009537.
+For sum_form with num=19000, result = 180509500.0 in time 0.0000009537.
+
+For sum_loop with num=1000: result = 500500 in time 0.0001218319.
+For sum_loop with num=2000: result = 2001000 in time 0.0002119541.
+For sum_loop with num=3000: result = 4501500 in time 0.0003182888.
+For sum_loop with num=4000: result = 8002000 in time 0.0004231930.
+For sum_loop with num=5000: result = 12502500 in time 0.0005140305.
+For sum_loop with num=6000: result = 18003000 in time 0.0006108284.
+For sum_loop with num=7000: result = 24503500 in time 0.0007030964.
+For sum_loop with num=8000: result = 32004000 in time 0.0008106232.
+For sum_loop with num=9000: result = 40504500 in time 0.0009038448.
+For sum_loop with num=10000: result = 50005000 in time 0.0010118484.
+For sum_loop with num=11000: result = 60505500 in time 0.0011117458.
+For sum_loop with num=12000: result = 72006000 in time 0.0011761189.
+For sum_loop with num=13000: result = 84506500 in time 0.0012700558.
+For sum_loop with num=14000: result = 98007000 in time 0.0013661385.
+For sum_loop with num=15000: result = 112507500 in time 0.0015220642.
+For sum_loop with num=16000: result = 128008000 in time 0.0015380383.
+For sum_loop with num=17000: result = 144508500 in time 0.0015838146.
+For sum_loop with num=18000: result = 162009000 in time 0.0016670227.
+For sum_loop with num=19000: result = 180509500 in time 0.0017712116.</code></pre>
+
+  <p>The first line comes from our first call to <code class="inline">fnc_timer</code> that uses the default value for <code class="inline">num</code> when timing the function.  The next lines are from the for-loops where we supply a value for <code class="inline">num</code>.</p>
+
+<i><p>Hints:  </p>
+  <ul>
+    <li>Don't overthink the question-- the function that you have to write is very short.  The difficulty lies in putting the pieces together (functions as arguments, using keywords) into one function.</li>
+    <li>Make sure to include the module for timing code (e.g. <code class="inline">import time</code>.)</li>
+    <li>See Section 2.2 of the textbook and Lecture 3 where we discuss timing code and Lecture 4 where we recap function arguments.</li>
+    <li>See notes for Program 2 about code outside of functions.</li>
+  </ul>
+  </i>
+
+</li>
+
+<a id="ps11"></a>
+<li > 
+  <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Sunday, 12 October</b>  <br>
+    <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 2</a> & <a href="lab/lab4.html">Lab 4</a></b><br>
+    <b>Available Libraries:  Core Python 3.6+</b> 
+  </p>
+
+  <p><b>Binary Search</b></p>    
+
+  <p>For Classwork 4, we traced through the pseudocode for linear search and binary search.  Convert the pseudocode for binary search into a function: </p>
+
+  <pre><code class="blockcode">def binary_search(cards, min_ind, max_ind, target):</code></pre>
+
+  <p>The pseudocode from Classwork 4:</p>
+    <tt>
+    <ol>
+      <li>If min_ind > max_ind, </li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;Return False</li>
+      <li>Let mid = (min_ind+max_ind)//2</li>
+      <li>If cards[mid] is target,</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;Return True</li>
+      <li>If cards[mid] < target,</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;Return binary_search( cards, mid+1, max_ind, target )</li>
+      <li>Return binary_search( cards, min_ind, mid-1, target )</li>
+    </ol>
+    </tt>
+
+
+  <p>For example, if you ran your program:
+
+  <pre><code class="blockcode">cards = [1,1,2,3,8,9,10,11,12]
+purples = ["amethyst","eggplant","grape","indigo","lavendar","lilac","magenta","plum","violet"]
+
+
+print(f"Is 7 in the cards? {binary_search(cards,0,len(cards)-1,7)}")
+print(f"How about 8? {binary_search(cards,0,len(cards)-1,8)}\n")
+
+print(f"Is mauve one of our purples?  {binary_search(purples, 0,len(purples)-1,'mauve')}")</code>
+</pre>
+    
+<p>Then the output would be:</p>
+
+<pre><code class="datablock">Is 7 in the cards? False
+How about 8? True
+  
+Is mauve one of our purples?  False
+</code></pre>
+
+<i><p>Hints:  </p>
+  <ul>
+    <li>See notes for Program 2 about code outside of functions.</li>
+    <li>See Classwork 4 where we sketch out this problem.</li>
+  </ul>
+  </i>
+
+</li>
+
+<a id="ps12"></a>
+<li > 
+  <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 14 October</b>  <br>
+    <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab4.html">Lab 4</a></b><br>
+    <b>Available Libraries:  Core Python 3.6+</b> 
+  </p>
+
+  <p><b>Find the Duplicate Number</b></p>    
+
+  <p></p>
+
+  <p>Given an array of integers nums containing <code class="inline">n + 1</code> integers where each integer is in the range <code class="inline">[1, n]</code> inclusive.
+    
+  <p>There is only one repeated number in nums, return this repeated number.  Your function should be:</p>
+
+  <pre><code class="blockcode">def find_duplicate(nums : List(int)) -> int:</code></pre>
+    
+  <p>Note:  You must solve the problem without modifying the array nums and uses only constant extra space.</p>
+    
+     
+  <pre>Example 1:
+    
+  Input: nums = [1,3,4,2,2]
+  Output: 2
+
+Example 2:
+    
+  Input: nums = [3,1,3,4,2]
+  Output: 3
+</pre>  
+
+
+
+
+
+<i><p>Hints:  </p>
+  <ul>
+    <li>This is LeetCode 287.  As with all the programming challenges, try to program it on your own before seeking help from the lab or on-line.</li>
+    <li>Many of the solutions you will find on-line use techniques we have not learned yet.  There is a way to do this using binary search.  Here's an approach:
+    <ul>
+      <li>All the integers in <code class="inline">nums</code> appear only once except for precisely one integer which appears two or more times.</li>
+      <li>Let's do binary search on values [1,...,n], instead of the indices (of which there's n+1, since there's a duplicate).</li>
+      <li>To find the duplicate, let's look at the middle value.  For the first example above,  
+        <code class="inline">nums = [1,3,4,2,2]</code>, it's 4/2 = 2.  How many elements are at most 2?  And how many are larger than 2?</li>
+      <li>We can compute that with a simple loop that check each value and counts those &lt;= 2.   3 entries in the list are at most 2 and 2 entries are more than 2.  So, we have 3 elements that are 1 or 2 and 2 entries that are 3 or 4. Since only one number is duplicated and we have 2 entries that are in [3,...,4], the duplicate number must be either 1 or 2.</li>
+      <li>Let's repeat our loop with guess of 1.  This time, we have 1 entry in the list with value &lt; 1 and 4 entries that are 2,3,4.  1 is not the answer.  So, it must be 2.</li>
+    </ul>
+    </li>   
+  </ul>
+  </i>
+</li>
+
+
+
+
+
+<a id="ps13"></a>
+<li > 
+  <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Saturday, 18 October</b>  <br>
+    <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab4.html">Lab 4</a></b><br>
+    <b>Available Libraries:  Core Python 3.6+</b> 
+  </p>
+
+  <p><b>Median Value</b></p>    
+
+  <p></p>
+
+  <p>In lectures and labs, we have compute minimum, maximum, mean (average), and mode (most common value) for lists of numbers.  For this program, we're computing the median, or value for which half the numbers in the list are smaller and half the list are larger.  For lists of even length, we will arbitrarily choose the larger of the two middle values, if they differ.</p>
+  
+  <p>An elegant way to compute the median, is to split the list into smaller lists, say each of length 5. Find the median of each and save those to a list.  And repeat this on your new list.  If you keep repeating, you will, recursively, found the median value.</p>
+
+  <a href="https://en.wikipedia.org/wiki/Median_of_medians">
+ <img height=200 src="./image/wiki_Median_Of_Medians.png"></a><br>
+(From Wiki: <a href="https://commons.wikimedia.org/w/index.php?curid=48386302">Pashapanther</a>. )
+
+
+  <p>The pseudocode for computing the median of medians is:</p>
+    <tt>median_of_medians(nums)
+    <ol>
+      <li>Let n be the length of nums.</li>
+      <li>If n &lt;= 2, return nums[-1].  </li>
+      <li>Let med_list be an empty list.</li>
+      <li>Divide nums into n/5 sublists of length 5, except possibly the last sublist which has the remaining elements (1 to 5 of them).</li>
+      <li>For each sublist, compute median and append to med_list.</li>
+      <li>Call median_of_medians(med_list).</li>
+    </ol>
+    </tt>
+
+  <p>For this question, write the function that finds the median of lists of 5 or fewer values (that is, implement line 5 above):</p>
+
+  <pre><code class="blockcode">def median_5(nums: List) -> int:</code></pre>
+
+  <p>that takes a list of numbers of 5 (or fewer) elements and returns the median value.  If the list is of even length, it returns the larger of the two middle values.</p>
+
+  <p>For example, if <code class="inline">nums = [1,8,2,3,7]</code>, the number for that has half the elements below it and half above it is 3, so, your function would return 3.</p>
+
+  <p>For example, if <code class="inline">nums = [10,3,3,4]</code>, the values in the middle are 3 and 4, so, your function returns the larger, or 4.</p>
+
+
+  <a id="ps14"></a>
+<li > 
+  <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 21 October</b>  <br>
+    <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab5.html">Lab 5</a></b><br>
+    <b>Available Libraries:  Core Python 3.6+</b> 
+  </p>
+
+  <p><b>Fraction Class</b></p>    
+
+  <p>Building on the Fraction class (<a href="fraction.py">fraction.py</a>) from <a href="lab/lab5.html">Lab 5</a>, write two functions:</p>
+
+    <ul>
+      <li><code class="inline">__eq__(self, other):</code> which returns <code class="inline">True</code> if <code class="inline">self</code> and <code class="inline">other</code> are equivalent fractions and <code class="inline">False</code> otherwise.</li>
+    
+    <li><code class="inline">__mul__(self, other):</code> which multiplies the fractions <code class="inline">self</code> and <code class="inline">other</code> and returns the simplified product.</pre></li>
+    </ul>
+
+    <p>For example, if the Fraction class is in the file <code>fraction.py</code></p>
+
+    <pre><code class="blockcode">from fraction import *
+f1 = Fraction(1, 2)
+f2 = Fraction(2, 3)
+
+f3 = f1 * f2
+print(f"{f1} times {f2} is {f3}.")
+print(f"Is f3 equivalent to f1:  {f3 == f1}.")
+</code></pre>
+
+    <p>would output:</p>
+
+    <pre><code inclass="datablock">1/2 times 2/3 is 1/3.
+Is f3 equivalent to f1:  False.</code>
+    </pre>
+
+    <i><p>Hints:  </p>
+      <ul>
+        <li>In <a href="lab/lab5.html">Lab 5</a>, we worked through the Fraction class from 
+        <a href="https://runestone.academy/ns/books/published//thinkcspy/ClassesDiggingDeeper/toctree.html">ThinkCS Chapter 18</a>.  In the textbook, addition (<code>__add__</code>) is written.  Follow that template for the functions above.</li>
+        <li>A list of the function names for arithmetic and boolean operators can be found at the end of the <a href="https://www.geeksforgeeks.org/operator-overloading-in-python/">Geeks for Geeks tutorial</a>.</li>
+      </ul>
+      </i>
+    </li>
+
+  <a id="ps15"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Saturday, 25 October</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 1</a> & <a href="lab/lab5.html">Lab 5</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+, pandas</b> 
+    </p>
+  
+    <p><b>Senators</b></p>    
+
+    <p>
+      Write a program, using the <code class = "inline">pandas</code> package, that asks the user for the name of an input CSV file and the name of an output CSV file.  The program should open the file name provided by the user.
+      Next, the program should select rows where the field <code class = "inline">senate_class</code> is non-empty and write the <code class = "inline">first_name</code> and <code class = "inline">last_name</code> to a file with the output file name provided by the user.
+      
+      <p>For example, if the file was <a href="https://theunitedstates.io/congress-legislators/legislators-current.csv">legislators-current.csv</a> with the first 3 lines of:
+      <pre><code class=datablock>last_name,first_name,middle_name,suffix,nickname,full_name,birthday,gender,type,state,district,senate_class,party,url,address,phone,contact_form,rss_url,twitter,facebook,youtube,youtube_id,bioguide_id,thomas_id,opensecrets_id,lis_id,fec_ids,cspan_id,govtrack_id,votesmart_id,ballotpedia_id,washington_post_id,icpsr_id,wikipedia_id
+Brown,Sherrod,,,,Sherrod Brown,1952-11-09,M,sen,OH,,1,Democrat,https://www.brown.senate.gov,503 Hart Senate Office Building Washington DC 20510,202-224-2315,http://www.brown.senate.gov/contact/,http://www.brown.senate.gov/rss/feeds/?type=all&amp;,SenSherrodBrown,SenatorSherrodBrown,SherrodBrownOhio,UCgy8jfERh-t_ixkKKoCmglQ,B000944,00136,N00003535,S307,"H2OH13033,S6OH00163",5051,400050,27018,Sherrod Brown,,29389,Sherrod Brown
+Cantwell,Maria,,,,Maria Cantwell,1958-10-13,F,sen,WA,,1,Democrat,https://www.cantwell.senate.gov,511 Hart Senate Office Building Washington DC 20510,202-224-3441,http://www.cantwell.senate.gov/public/index.cfm/email-maria,http://www.cantwell.senate.gov/public/index.cfm/rss/feed,SenatorCantwell,senatorcantwell,SenatorCantwell,UCN52UDqKgvHRk39ncySrIMw,C000127,00172,N00007836,S275,"S8WA00194,H2WA01054",26137,300018,27122,Maria Cantwell,,39310,Maria Cantwell</code></pre>
+      
+      Then a sample run of the program:
+      
+      <pre><code class="blockcode">Enter input file name: legislators-current.csv
+Enter output file name:  senatorNames.csv
+</code></pre>
+      
+      And the first three lines of <code class = "inline">senatorNames.csv</code> would be:
+      <pre><code class=datablock>first_name,last_name
+Sherrod,Brown
+Maria,Cantwell
+</code></pre>
+      
+<p><i>Hint:  Use pandas to read in the CSV and select the name columns.  When saving to the file, only save the columns (not the index).  For example, <code>df_out.to_csv(out_name, index=False)</code></i></p>
+  </li>
+
+  <a id="ps16"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 28 October</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 3</a> & <a href="lab/lab6.html">Lab 6</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Linked List Search</b></p>    
+
+    <p>Using the Node class from <a href="lab/lab6.html">Lab 6</a>, write a function that searches a linked list and returns <code>True</code> if found and <code>False</code> otherwise.  Your function should be of the format:</p>
+  
+    <pre><code class="blockcode">def search_list( lst : Optional[ListNode], target : int) -> bool:</code></pre>
+    
+    where a <code>ListNode</code> is:
+
+    <pre><code class="blockcode">class ListNode:
+  def __init__(self, val=0, next_node=None):
+    self.val = val
+    self.next = next_node</code></pre>
+
+
+    <p>For example, if <code>target</code> is <code>3</code> and <code>lst_1</code> is:</p>
+
+    <p><img src="./image/lc_2_first_lst.png" height="100"></p>
+
+    <p>then <code>search_list( lst_1, target )</code> would return <code>True</code>.  Writing this in Python:</p>
+    
+    <pre><code class="datablock">lst = ListNode(2)
+lst.next = ListNode(4)
+lst.next.next = ListNode(3)
+
+print(f"Is 3 in lst?  {search_list(lst,3)}")
+print(f"Is 10 in lst?  {search_list(lst,10)}")</code></pre>
+
+    <p>The resulting output:</p>
+
+    <pre><code class="datablock">Is 3 in lst?  True
+Is 10 in lst?  False</code></pre>
+
+    <br><br>
+    <p><i>A helpful function for printing out your list:</i></p>
+
+    <pre><code class="blockcode">def list_2_str( lst ):
+  """
+  Helper function for printing out lists
+  """
+  current = lst
+  lst_str = ""
+  while current is not None:
+      lst_str = lst_str + "->" + str(current.val)
+      current = current.next
+  if len(lst_str) > 0:
+      #Get rid of leading "->" in string 
+      lst_str = lst_str[2:]
+  return lst_str</code></pre>
+
+  </li>       
+
+  <a id="ps17"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Saturday, 1 November</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 3</a> & <a href="lab/lab6.html">Lab 6</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Balanced Parenthesis</b></p>    
+    
+    <p>Given a string <code>line</code> that contains alphanumeric characters as well as '(', ')', '{', '}', '[' and ']', determine if the input string is valid.</p>
+
+    <p>An input string is valid if:</p>
+      
+    <ul>
+      <li>Open brackets must be closed by the same type of brackets.</li>
+      <li>Open brackets must be closed in the correct order.</li>
+      <li>Every close bracket has a corresponding open bracket of the same type.</li>
+    </ul>
+
+    <pre><code class="blockcode">def is_valid(line: str) -> bool</code></pre>  
+
+    <p>Examples:</p>
+
+    <ol>
+      <li>If <code>line</code> is <code>print("Hello")</code>, then <code>is_valid(line)</code> returns <code>True</code> since the opening <code>(</code> is matched with <code>)</code>.</li>
+      <li>If <code>line</code> is <code>words[-1].join()</code>, then <code>is_valid(line)</code> returns <code>True</code> since the opening <code>[</code> is matched with <code>]</code> and <code>(</code> is matched with <code>)</code>.</li>
+      <li>If <code>line</code> is <code>words[0)</code>, then <code>is_valid(line)</code> returns <code>False</code> since there is an opening <code>[</code> but no matching <code>]</code>.</li>      
+      <li>If <code>line</code> is <code>(((words[0] == 'Hi') or (words[0] == 'Hello')) and (words[-1] == 'Bye'))</code>, then <code>is_valid(line)</code> returns <code>True</code> since if we look at the parentheses: <code>((()())())</code> they follow the matching rules.</li>    
+    </ol>
+
+       </p>
+    <p>Note:  This is a variation on LC 20.  See Classwork 6 in Lecture 6.</p>
+  </li> 
+
+
+  <a id="ps18"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 4 November</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 3</a> & <a href="lab/lab6.html">Lab 6</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Increment Number</b></p>    
+    <p>Using the Node class from <a href="lab/lab6.html">Lab 6</a>, assume each <code>val</code> in a node contains a digit: <code>0</code> to <code>9</code>.  Each linked list represents a large number in reverse order.  For example, the list:</p>
+      
+    <p><img src="./image/lc_2_first_lst.png" height="100"></p>      
+    
+    <p>The smallest part, or ones column, is 2.  The tens column is 4.  And the hundreds column is 3.  So this represents 342.</p>
+
+    <p>
+      Write a function that adds one to a large number and returns the value.  Your function should be of the format:</p>
+
+    <pre><code class="blockcode">def increment_num( lst : Optional[ListNode] ) -> Optional[ListNode]:</code></pre>
+    
+    where a <code>ListNode</code> is:
+
+    <pre><code class="blockcode">class ListNode:
+  def __init__(self, val=0, next=None):
+    self.val = val
+    self.next = next</code></pre>
+
+
+    <p>For example, if <code>lst_1</code> is <code>2 -> 4 -> 3</code>,
+    then <code>increment_num( lst_1 )</code> would return a linked list with <code>3 -> 4 -> 3</code>. </p> 
+
+    <p>If <code>lst_2</code> is <code>9 -> 9 -> 1</code> 
+    then <code>increment_num( lst_2 )</code> would return a linked list with <code>0 -> 0 -> 2</code> since adding one to 199 yields 200.  
+    
+    
+    <p>Hint:  Think about what happens when a digit is <code>9</code>.  See Classwork 7 and Lecture 7 for an example of adding large numbers.</p>
+  </li> 
+
+  <a id="ps19"></a>
+
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Saturday, 8 November</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 3</a>, <a href="lab/lab5.html">Lab 5</a> & <a href="lab/lab6.html">Lab 6</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Palindromes</b></p>    
+    
+    A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+    Given a string s, return <code>True</code> if it is a palindrome, or <code>False</code> otherwise:
+
+    <pre><code class="blockcode">def is_palindrome(input_s: str) -> bool</code></pre>  
+    
+     
+    Examples:
+    <ol>
+      <li>If <code>input_s = "A man, a plan, a canal: Panama"</code>, then the output is <code>True</code> since "amanaplanacanalpanama" is a palindrome.</li>
+      <li>If <code>input_s = "race a car"</code>, then the output is <code>False</code> since "raceacar" is not a palindrome.</li>
+      <li>If <code>input_s = " " </code>, then the output is <code>True</code> since s is an empty string "" after removing non-alphanumeric characters, and an empty string reads the same forward and backward, it is a palindrome.</li>
+    </ol>
+  
+    <p>Note:  This is LC 125.  See Classwork 6 in Lecture 6 and Classwork 7.2 in Lecture 7.</p>
+  </li>  
+
+
+  <a id="ps20"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 11 November</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 3</a> & <a href="lab/lab7.html">Lab 7</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Checkout Lines</b></p>   
+
+
+    <p>Write a function that models a  grocery store checkout lines</p>
+
+    <pre><code class="blockcode">def checkout_lines(carts: List) -> int</code></pre>  
+
+    <p>that takes a list of integers representing the number of items in customers carts and returns the amount of time it takes for all customers to checkout.</p>
+
+    <p>There are 3 checkout lines, and at each time step, one item can be processed.  Any checkout with 0 items left to process takes the next customer from <code>carts</code>.</p>
+
+    <p><b>Example:</b>  Say <code>carts = [5,1,2,4,2]</code>.</p>
+    <ul>
+      <li>At time 0, all checkers are available and we send the first 3 customers to checkers: 5,1,2 items to be processed.</li>
+      <li>At time 1, we have processed an item, so, there's 4,0,1 items. </li>
+      <li>Since Checker #2 is available, we send the next customer to them and decrease the other two checkers to get 3,4,0.  </li>
+      <li>Now, Checker #3 is available, so, we send the next customer there and decrease the other two to get 2,3,2.  </li>
+      <li>We continue sending customers to open checkers and decrementing counts until we reach 0,0,0.  
+      The function returns the total time which is 7.</li>
+    </ul>
+      
+    <p>More details:</p>
+    <table>
+      <tr><td><b>Time</b></td>
+        <td>Checker #1</td>
+        <td>Checker #2</td>
+        <td>Checker #3</td>
+      </tr>
+      <tr><td><b>0</b></td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>      
+      <tr><td><b>1</b></td>
+        <td>5</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      <tr><td><b>2</b></td>
+        <td>4</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>  
+      <tr><td><b>3</b></td>
+        <td>3</td>
+        <td>4</td>
+        <td>0</td>
+      </tr> 
+      <tr><td><b>4</b></td>
+        <td>2</td>
+        <td>3</td>
+        <td>2</td>
+      </tr>  
+      <tr><td><b>5</b></td>
+        <td>1</td>
+        <td>2</td>
+        <td>1</td>
+      </tr> 
+      <tr><td><b>6</b></td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+      </tr> 
+      <tr><td><b>7</b></td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>                                    
+    </table>  
+  
+   
+  <a id="ps21"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Saturday, 15 November</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 3</a> & <a href="lab/lab7.html">Lab 7</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Number Converter</b></p>  
+    
+    <p>In <a href="https://runestone.academy/ns/books/published/pythonds3/BasicDS/ConvertingDecimalNumberstoBinaryNumbers.html">Section 3.8</a> from Lab 7, code was developed to convert decimal numbers into binary.</p>
+
+    <p>For this program, write a function that will convert decimal numbers into other base numbers (where the base is <= 10):</p>
+
+    <pre><code class="blockcode">def number_converter(num: int, base=2:int) -> str</code></pre> 
+
+    <p>The default is to convert the number to binary (base = 2) but your function should allow the user to specify other bases.</p>
+
+    <p>For example:</p>
+
+    <pre><code class="blockcode">print(f"15 base 2 is {number_converter(15)}.")
+print(f"15 base 8 is {number_converter(15,base=8)}.")</code></pre>
+  
+    <p>would print:</p>
+
+    <pre><code class="datablock">15 base 2 is 1111.
+15 base 8 is 17.</code></pre>
+    
+ 
+  <a id="ps22"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 18 November</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 5</a> & <a href="lab/lab8.html">Lab 8</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+
+    <p><b>Find All Duplicates</b></p>
+
+    <p>Given an integer array nums of length <code>n</code> where all the integers of nums are in the range <code>[1, n]</code> and each integer appears once or twice, return an array of all the integers that appears twice.</p>
+
+    <pre><code class="blockcode">def find_all_duplicates(nums: List) -> List</code></pre>     
+
+    <p>You must write an algorithm that runs in <code>O(n)</code> time and uses only constant extra space.</p>
+    
+    <p>Examples:</p>  
+    <ol>
+      <li><pre><code class="blockcode">Input: nums = [4,3,2,7,8,2,3,1]
+Output: [2,3]</code></pre></li>
+      <li><pre><code class="blockcode">Input: nums = [1,1,2]
+Output: [1]</code></pre></li>
+      <li><pre><code class="blockcode">Input: nums = [1]
+Output: []</code></pre></li>
+    </ol>
+      
+       </p>
+
+
+    <p>Hint:  This is <a href="https://leetcode.com/problems/find-all-duplicates-in-an-array/description/">LC 442</a> (Find All Duplicates in an Array).  See <a href="lab/lab8.html">Lab 8</a>.</p>
+
+
+  <a id="ps23"></a>
+    <li > 
+      <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Saturday, 22 November</b>  <br>
+        <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 5</a> & <a href="lab/lab8.html">Lab 8</a></b><br>
+        <b>Available Libraries:  Core Python 3.6+</b> 
+      </p>
+       
+
+    <p><b>Numbers Disappeared</b></p>  
+    
+    <p>Given an array nums of <code>n</code> integers where <code>nums[i]</code> is in the range <code>[1, n]</code>, return an array of all the integers in the range <code>[1, n]</code> that do not appear in <code>nums</code>.</p>
+
+    <pre><code class="blockcode">def nums_disappeared(nums: List) -> List</code></pre>  
+
+
+    <p>Examples:</p>
+    <ol>
+      <li>
+<pre><code class="datablock">Input: nums = [4,3,2,7,8,2,3,1]
+Output: [5,6]</code></pre>
+
+      </li>
+      <li>
+<pre><code class="datablock">Input: nums = [1,1]
+Output: [2]</code></pre>
+      </li>
+    </ol>
+
+
+    <p>Hints:</p>
+    <ul>
+      
+      <li>It is very straightforward if you use extra space.  Can you do this in <code>O(n)</code> time and <code>O(1)</code> space?</li>
+      <li>This is <a href="https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/">LC 448</a> (Find All Numbers Disappeared in an Array).  See Hints at LeetCode for how to use only constant space and <a href="lab/lab8.html">Lab 8</a>.</li>
+    </ul>
+
+
+
+    
+  <a id="ps24"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 25 November</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 5</a> & <a href="lab/lab9.html">Lab 9</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Minimum in Rotated Sorted Array</b></p> 
+
+    <p>Given a sorted rotated array <code>nums</code> of unique elements, return the minimum element of this array.</p>
+    <p></p>
+    <pre><code class="blockcode">def min_rotated(nums: List) -> int</code></pre>     
+
+    <p>You must write an algorithm that runs in <code>O(log n)</code> time.</p>
+
+
+    <p>Examples:</p>
+    <ol>
+      <li><pre><code class="datablock">Input: nums = [3,4,5,1,2]
+Output: 1</code></pre>
+</li>
+<li><pre><code class="datablock">Input: nums = [4,5,6,7,0,1,2]
+Output: 0</code></pre>
+</li>
+  <li><pre><code class="datablock">Input: nums = [11,13,15,17]
+Output: 11</code></pre></li>
+
+    </ol>
+
+</p>
+
+  <p>Hint:  This is <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/">LC 153. Find Minimum in Rotated Sorted Array</a>.</p>
+    
+
+  
+  <a id="ps25"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 30 November</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 5</a> & <a href="lab/lab10.html">Lab 10</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Sort Array By Parity</b></p>        
+
+
+    <p>Given an integer array <code>nums</code>, move all the even integers at the beginning of the array followed by all the odd integers.</p>
+
+    <br>
+    <pre><code class="blockcode">def sort_by_parity(nums: List) -> List</code></pre>    
+
+    <p>Return any array that satisfies this condition.</p>
+
+    <p>Examples:</p>
+
+    <ol>
+      <li><pre><code class="datablock">Input: nums = [3,2,1,4]
+Output: [2,4,3,1]</code></pre>
+        Explanation: The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.</li>
+      <li><pre><code class="datablock">Input: nums = [0]
+Output: [0]</code></pre></li>
+    </ol>
+
+    <p>Hint:  This is <a href="https://leetcode.com/problems/sort-array-by-parity/description/">LC 905. Sort Array By Parity</a> and see <a href="lab/lab10.html">Lab 10</a>.</p>
+
+
+
+  <a id="ps26"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Thursday, 6 December</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 5</a> & <a href="lab/lab10.html">Lab 10</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Group Anagrams</b></p>  
+    
+    <p>Given an array of strings <code>strs</code>, group the anagrams together. You can return the answer in any order.</p>
+    
+    <br>
+    <pre><code class="blockcode">def group_anagram(strs: List) -> List</code></pre>     
+
+    <p>An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, using all the original letters exactly once.</p>
+      
+    <p>Examples:</p>
+    <ol>
+      <li><pre><code class="datablock">Input: strs = ["eat","tea","tan","ate","nat","bat"]
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]</code></pre></li>
+
+      <li><pre><code class="datablock">Input: strs = [""]
+Output: [[""]]</code></pre></li>
+
+      <li><pre><code class="datablock">Input: strs = ["a"]
+Output: [["a"]]</code></pre></li>
+
+    </ol>   
+
+
+    <p>Hint:  This is <a href="https://leetcode.com/problems/group-anagrams/description/">LC 49. Group Anagrams</a> and see <a href="lab/lab10.html">Lab 10</a>.</p>
+
+     
+
+  <a id="ps27"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Sunday, 9 Sunday</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 5</a> & <a href="lab/lab11.html">Lab 11</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    
+    <p><b>Kth Smallest Element</b></p> 
+
+    <p>Write a function that takes a list of numbers and returns the kth smallest number: </p>
+    
+    <br>
+    <pre><code class="blockcode">def kth_smallest(nums: List, kth = 1: int) -> int</code></pre>    
+
+    <p>Examples:</p>
+    <ol>
+      <li>If <code class>nums = [19,8,1,20,5,45,7,10]</code>, then <code>kth_smallest(nums)</code> returns <code>1</code>.</li>
+      <li>If <code class>nums = [19,8,1,20,5,45,7,10]</code>, then <code>kth_smallest(nums, kth=3)</code> returns <code>7</code>.</li>
+      <li>If <code class>nums = [30,25,20,15,10,5,0]</code>, then <code>kth_smallest(nums, kth=4)</code> returns <code>15</code>.</li>     
+    </ol> 
+    
+
+    <p>Hint:  The built-in Python library <a href="https://docs.python.org/3/library/heapq.html">heapq</a> may be useful.</p>
+
+  <a id="ps28"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Tuesday, 11 December</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 5</a> & <a href="lab/lab12.html">Lab 12</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>BST Insert</b></p> 
+
+    <p>You are given the root node of a binary search tree (BST) and a value to insert into the tree. Return the root node of the BST after the insertion. It is guaranteed that the new value does not exist in the original BST.</p>
+
+    <br>
+    <pre><code class="blockcode">def insert(root: TreeNode, val: int) -> TreeNode:</code></pre>     
+
+
+    <p>Notice that there may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return any of them.</p>
+
+    <p>The tree node class is:</p>
+    <pre><code class="blockcode"># Definition for a binary tree node.
+class TreeNode:
+  def __init__(self, val=0, left=None, right=None):
+    self.val = val
+    self.left = left
+    self.right = right</code></pre>
+
+
+    <p>Example:  The <code>val = 5</code> inserted into the tree:</p>
+    <img src = "./image/lc_701_insert_bst_cropped.png" height="200">
+
+    <p>The file <a href="p28_driver.py">p28_driver.py</a> contains some more examples that test the function.  The first part sets up a new tree:</p>
+
+    <pre><code class="blockcode">my_tree = None
+my_tree = insert(my_tree, 10)
+print("added first node")
+print(inorder(my_tree))</code></pre>
+
+    <p>The <code>inorder()</code> function is a helper function that prints out a node with arrows pointing to its left and right children.  Since there's only a root node to start, the left and right have no values, just parenthesis to show that they are there:</p>
+
+    <pre><code class="datablock">() <- 10 -> ()</code></pre>
+
+    <p>We can more nodes to binary search tree:</p>
+
+    <pre><code class="blockcode">some_vals = [3,5,20,15,1]
+for val in some_vals:
+    my_tree = insert(my_tree, val)
+    print(inorder(my_tree))</code></pre> 
+    
+    <p>As we loop through the list, we insert the value and then print out the modified tree:</p>
+
+    <pre><code class="datablock">(() <- 3 -> ()) <- 10 -> ()
+(() <- 3 -> (() <- 5 -> ())) <- 10 -> ()
+(() <- 3 -> (() <- 5 -> ())) <- 10 -> (() <- 20 -> ())
+(() <- 3 -> (() <- 5 -> ())) <- 10 -> ((() <- 15 -> ()) <- 20 -> ())
+((() <- 1 -> ()) <- 3 -> (() <- 5 -> ())) <- 10 -> ((() <- 15 -> ()) <- 20 -> ())</code></pre>
+
+    <p>Similarly, we can build another tree from the list, [1,2,4,8,16,32]:</p>
+
+    <pre><code>#Making another tree from [1,2,4,8,16,32]
+double_vals = [1,2,4,8,16,32]
+another_tree = None
+for val in double_vals:
+    another_tree = insert(another_tree, val)
+    print(inorder(another_tree))</code></pre>
+
+    <p>Since the values are in order, inserting into the binary search tree yields are very long, stringy tree with no left children:</p>
+
+    <pre><code class="datablock">() <- 1 -> ()
+() <- 1 -> (() <- 2 -> ())
+() <- 1 -> (() <- 2 -> (() <- 4 -> ()))
+() <- 1 -> (() <- 2 -> (() <- 4 -> (() <- 8 -> ())))
+() <- 1 -> (() <- 2 -> (() <- 4 -> (() <- 8 -> (() <- 16 -> ()))))
+() <- 1 -> (() <- 2 -> (() <- 4 -> (() <- 8 -> (() <- 16 -> (() <- 32 -> ())))))</code></pre>
+
+    <p>Hint:  This is <a href="https://leetcode.com/problems/insert-into-a-binary-search-tree/">LC 701. Insert into a Binary Search Tree</a> and see Lecture 12 and <a href="lab/lab12.html">Lab 12</a>.</p>
+
+
+
+
+  <a id="ps29"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Friday, 14 December</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 7</a> & <a href="lab/lab12.html">Lab 12</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Find the Town Judge</b></p> 
+
+    <p>In a town, there are <code>num</code> people labeled from <code>1</code> to <code>num</code>. There is a rumor that one of these people is secretly the town judge.</p>
+
+    <p>If the town judge exists, then:</p>
+    
+    <ol>
+      <li>The town judge trusts nobody.</li>
+      <li>Everybody (except for the town judge) trusts the town judge.</li>
+      <li>There is exactly one person that satisfies properties 1 and 2.</li>
+    </ol>
+    
+    <p>You are given an array trust where <code>trust[i] = [a_i, b_i]</code> representing that the person labeled <code>a_i</code> trusts the person labeled <code>b_i</code>. If a trust relationship does not exist in trust array, then such a trust relationship does not exist.</p>   
+
+    <p>Your function should be of the form :</p>
+    <pre><code class="blockcode">def find_judge(num: int, trust: List[List[int]]) -> int:</code></pre> 
+    
+    <p>and return the label of the town judge if the town judge exists and can be identified, or return <code>-1</code> otherwise.</p>
+    
+    <p>Examples:</p>
+    
+    <ol>
+      <li>Input: <code>n = 2, trust = [[1,2]]</code><br>
+      Output: <code>2</code></li>
+      <li>Input: <code>n = 3, trust = [[1,3],[2,3]]</code><br>
+      Output: <code>3</code></li></li>
+      <li>Input: <code>n = 3, trust = [[1,3],[2,3],[3,1]]</code><br>
+      Output: <code>-1</code></li></li>        
+    </ol>
+  
+    </p>
+
+    <p>Hint:  This is <a href="https://leetcode.com/problems/find-the-town-judge/description/">LC 997 (Find the Town Judge) and see Lecture 12 and <a href="lab/lab12.html">Lab 12</a>.</p>
+
+
+
+  <a id="ps30"></a>
+  <li > 
+    <p style="float:right;margin-left:10pt"><b>Due Date: 5pm, Saturday, 15 December</b>  <br>
+      <b>Reading: <a href="https://runestone.academy/ns/books/published/pythonds3/Introduction/toctree.html">Textbook: Chapter 7</a> & <a href="lab/lab13.html">Lab 13</a></b><br>
+      <b>Available Libraries:  Core Python 3.6+</b> 
+    </p>
+  
+    <p><b>Providence Size</b></p> 
+
+    <p>There are <code>n</code> cities. Some of them are connected, while some are not. If city <code>a</code> is connected directly with city <code>b</code>, and city <code>b</code> is connected directly with city <code>c</code>, then city <code>a</code> is connected indirectly with city <code>c</code>.
+    
+    <p>A <b>province</b> is a group of directly or indirectly connected cities and no other cities outside of the group.
+    </p>
+      
+    <p>You are given the number of a city, <code>num</code> and an <code>n</code> x <code>n</code> matrix <code>is_connected</code> where <code>is_connected[i][j] = 1</code> if the ith city and the jth city are directly connected, and <code>is_connected[i][j] = 0</code> otherwise.</p>
+  
+    <p>Write a function:</p>
+    <pre><code class="blockcode">def province_size(num: int, is_connected: List[List[int]]) -> int:</code></pre> 
+
+    <p>that return the total number of cities in the province containing <code>num</code>.</p>
+
+    <p>Examples:</p>
+
+    <p><img src="./image/lc_547_number_of_provinces_ex1.png" height=250></p>
+    <p>The return value is <code>2</code> for <code>num = 1</code> since there are 2 cities in the province containing <code>2</code>.  If <code>num = 3</code>, then the return is <code>1</code> since city <code>3</code> is isolated and its province contains only it.</p>
+    
+    <p><img src="./image/lc_547_number_of_provinces_ex2.png" height="250"></p>
+    <p>The return value is <code>1</code> for <code>num = 1</code> since city <code>1</code> is isolated and its province contains only it.  Similarly, the return value is also <code>1</code> for cities <code>2</code> and <code>3</code> since they are also isolated and their provinces contain only themselves.</p>
+
+    
+    <br>
+    <p>Hint:  This is a simplier version of <a href="https://leetcode.com/problems/number-of-provinces/description/">LC 547 (Number of Provinces) </a>.  See Lecture 13 and <a href="lab/lab13.html">Lab 13</a>.</p>
+
+
+</ol>
+<hr>
+
+
+
+<hr>
+
+
+
+</div>
+</body>
+</html>
+
+
+--> 

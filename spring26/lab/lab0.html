@@ -1,0 +1,165 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <title>Lab 0, CSci 227: Programming Methods, Hunter College</title>
+</head>
+<STYLE>A {text-decoration: none;}
+th, td { padding: 5px; }
+code {
+  background-color: #eeeeee;
+}
+.inline {
+  padding: 1px;
+}
+.blockcode {
+  border: 1px solid #999999;
+  display: block;
+  padding-left: 10px;
+  padding-top : 2px;
+  padding-bottom : 2px;
+  margin: 5px;
+}
+.datablock {
+  border: 1px solid #eeeeee;
+  display: block;
+  padding: 7px;
+  padding-top : 0px;
+  margin: 5px;
+}
+</STYLE>
+<body>
+
+
+<div style="margin: 15px;">
+    <span style= "float: left;font-size:larger"><a href="https://zilolakhon.github.io/csci227/spring26/spring26.html">CSci 227</a></span>
+    <span style= "float: right">
+      <a href="../syl.html">Syllabus</a>&nbsp;&nbsp;&nbsp;
+      <a href="../resources.html">Resources</a>&nbsp;&nbsp;&nbsp;
+      <a href="../work.html">Coursework</a>
+    </span>
+</div>
+
+<br>
+<br>
+<hr>
+
+<div style="margin:50px">
+
+
+<h1>Laboratory Exercise 0
+  <br>CSci 227: Programming Methods<br>
+<a href="http://www.hunter.cuny.edu/csci">Department of Computer Science</a><br>
+<a href="https://hunter.cuny.edu">Hunter College</a>, <a href="https://www.cuny.edu">City University of New York</a><br>
+Spring 2026<br><br>
+</h1>
+
+<hr>
+<p><b>Learning Objectives:</b>  Students will:
+  <ul>
+    <li>Set up the tools needed for the course (e.g. Python programming environment and software plaforms used).</li>
+    <li>Refresh knowledge of Python learned in the introductory course.</li>
+    <li>Review syllabus and complete Gradescope quiz ("Quiz 0").</li>
+  </ul>
+</p>
+
+<p><b>Software Tools Needed:</b> Web browser to access textbook and set up accounts.</p>
+
+<p><b>Lab Notes:</b>  Download the <a href="lab0notes.txt">outline and focus questions</a> to guide you while working through this lab. 
+These are a useful tool for note taking and as well as studying for the quizzes and final exam. </p>
+
+<hr>
+
+
+<h2>Introduction</h2>
+
+<p>
+Welcome!
+This lab is a quick preview of the course and has a checklist of things to do now, before we meet in person.
+</p>
+
+<p>
+<em>Audience:</em>  This continuation of CSci 127 is aimed at computer science minors and others interested in strengthening their programming skills and knowledge of canonical data structures and algorithms.  This course can be counted towards a <a href="https://hunter-undergraduate.catalog.cuny.edu/programs/COMPSC-MIN">computer science minor</a>.   While computer science majors are welcome, this course does not count towards the computer science major.  
+</p>
+<p>
+<em>Focus:</em>  This course surveys core topics in data structures and algorithms.  The emphasis is on solving problems and less time on the theory (for more on both, see the programming sequence for majors:  CSci 135/235/335).  With this emphasis, we will use two industry standards, <a href="https://leetcode.com">LeetCode</a> and <a href="http://hackerrank.com">HackerRank</a>, as sources for problems in classwork and for coding reviews.  The course goal is mastery of the material so that students can successfully complete technical challenges at the summer internship skills level.
+</p>
+
+<p>
+<em>Course Organization:</em>  Like CSCI 127, this is a hybrid course.  Each week, there are in person and on-line components to the course:  
+  <ul>
+    <li>Lecture:  in-person on Fridays, 10-11:15am.</li>
+    <li>Lab:  on-line activity available after lecture.  It includes reading, programming exercises and challenges.  Each lab includes an outline and focus questions to guide your study.</li>
+    <li>Code Review & Quizzes:  in-person oral and written assessments in the 10th floor Python Lab.  Appointments available M-F, 11:30-5:30pm.</li>
+  </ul>  
+</p>
+
+<hr>
+
+<h2>Things To Do Now</h2>
+
+Before the first lecture, here's some things to do to prepare for the upcoming semester.  More details in the subsections below:
+
+<ol>
+    <li>Set up your Python programming environment.</li>
+    <li>Set up accounts for the software platforms that we will use this term 
+        (Brightspace, Gradescope, LeetCode, HackerRank, and GitHub).
+    </li>
+    <li>Refresh your knowledge of Python learned in the introductory course.</li>
+    <li>Complete Quiz 0 on Gradescope.</li>
+
+</ol>
+
+<h4>1. Python Programming Environment</h4>
+
+<p>If you don't have a laptop or home machine, reach out the <a href="https://hunter.cuny.edu/students/health-wellness/emergency-support-resources/">Office of Student Affairs.</a>  Hunter College is committed to providing students the resources they need to succeed.</p>
+
+<p>Set up the programming environment or your laptop or home machine.  While you can use online environments, if you have a machine, it's good practice for the future to use an integrated development environment (IDE).  Visual Studio Code is an all-purpose one that works well with Python on Linux, Windows, and MacOS (see <a href="https://code.visualstudio.com/docs/setup/setup-overview">VS Code installation notes</a>).</p>
+
+<h4>2. Access for Software Platforms</h4>
+
+<li>Set up accounts for the software platforms we will use this term:
+    <ul>
+        <li><b>Brightspace:</b>  this is set up automatically about 24 hours after registration.  If this course does not appear on your Brightspace list of courses, double check your CUNYFirst account to make sure that you are registered for the course registration. For issues with Brightspace, see the <a href="https://www.cuny.edu/about/administration/offices/cis/core-functions/cuny-blackboard/">CUNY Brightspace Page</a>.</li>
+        <li><b>Gradescope:</b>  this will be set up automatically for all students.  If you registered after that date, this course is not appearing in your Gradescope course list or you would like to use a different email address (we use the one in Brightspace), send email to <code class="inline">csci227@hunter.cuny.edu</code> with your full name, EmplID, and preferred email and access will be added manually.</li>
+        <li><b>LeetCode:</b> LeetCode is a platform designed to prepare for technical interviews.  See <a href="https://leetcode.com">leetcode.com</a> to set up a free account.</li>
+        <li><b>HackerRank:</b>  HackerRank is used by companies to conduct on-line technical interviews.  They also have materials to prepare for interviews.  See <a href="https://www.hackerrank.com">hackerrank.com</a> to set up a free account.</li>
+        <li><b>Github:</b>  Github is a platform that allows developers to manage and store code, including version control of code and hosting simple websites.  See <a href="https://github.com">github.com</a> to set up a free account.</li>
+    </ul>
+
+<h4>3. Introductory Python Recap</h4>
+
+The textbook has an excellent overview of data structures and algorithms as well as a concise review of Python topics.  Written by the same team who wrote the CSCI 127 textbook, it has interactive code windows and exercises throughout the text.  Work through the following sections of the <a href="https://runestone.academy/ns/books/published/pythonds3/index.html">textbook</a>:
+<ul>
+    <li>Sections 1.1-1.6 (Overview of Data Structures & Algorithms)</li>
+    <li>Section 1.7 (Basic Python)</li>
+    <li>Section 1.8.1 (Built-in Atomic/Primitive Data Types)</li>
+    <li>Section 1.10 (Control Structures)</li>
+    <li>Section 1.12 (Defining Functions)</li>  
+</ul>
+(The other sections of the first chapter are also important, but we will cover those later in the term.)
+
+<h4>4. Quiz 0</h4>
+
+<p>
+There are weekly written quizzes for the course.  The first quiz, "Quiz 0", is a quick on-line exercise, based on the <a href="syl.html">syllabus</a>.  It is available on Gradescope on 24 January.
+</p>
+<hr>
+
+
+<h2>What's Next</h2>
+
+
+<p>If you want to look ahead, here's some links:
+  <ul>
+    <li><a href="lab1.html">Lab 1</a> works through submitting programs and using pylint (a automated checker for programming style).</li>
+    <li><a href="ps.html">Programming assignments</a> can be submitted up to 2 weeks early on Gradescope.  For all programs, there's upto a 10% bonus for submitting early-- see the programming assignments page for details.</li>
+  </ul>
+
+</p>
+
+
+</div>
+</body>
+</html>
