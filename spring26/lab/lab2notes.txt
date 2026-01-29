@@ -1,0 +1,123 @@
+SKELETAL NOTES (follow this template to take notes as you are working through the lab):
+
+Learning Objectives
+What are the main learning objectives for this lab?
+
+
+
+
+
+
+
+
+String Methods:
+Read through the textbook's summary on string methods, and write down, for future reference, any that are unfamiliar:
+
+
+
+
+
+Sketch out the algorithm for the two LeetCode Challenges:
+
+66.  Plus One:
+
+
+
+
+
+
+
+1903.  Largest Odd Number in a String:
+
+
+
+
+
+
+Formatted Strings:
+Explain f-strings and give an example:
+
+
+
+
+
+
+List Comprehensions:
+Explain list comprehensions and give an example:
+
+
+
+
+
+
+Zips:
+Explain zips and give an example:
+
+
+
+
+
+File I/O:
+How do you open/close a file?  
+
+
+
+
+What does "with" do?
+
+
+
+
+Explain the 3 built-in ways to access data from a file:
+
+read():
+
+
+
+readline():
+
+
+
+readlines():
+
+
+
+
+
+
+
+
+FOCUS QUESTIONS (Make sure you can answer these questions when you are done with the lab):
+
+For each, give an example of how you would:
+* set up a string variable:
+
+* find the length of a string variable:
+
+* index the first and last elements of a string:
+
+* select a substring (slicing):
+
+* loop through a string:
+
+
+
+Explain how you would loop through a file and print the first word from each line:
+
+
+
+
+
+
+What is the output of: 
+
+firsts = ['Thomas','Donna','Jennifer','Ann']
+lasts = ['Hunter','Shalala','Raab','Kirschner']
+for first, last in zip(firsts,lasts):
+    print(f'President {first} {last}')
+
+
+
+
+
+

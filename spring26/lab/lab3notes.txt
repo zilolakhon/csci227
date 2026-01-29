@@ -1,0 +1,106 @@
+SKELETAL NOTES (follow this template to take notes as you are working through the lab):
+
+Learning Objectives
+What are the main learning objectives for this lab?
+
+
+
+
+
+
+
+How do you use "with" to access a file:
+
+
+
+
+What are the three ways to read from a file:
+
+
+
+
+What library and methods were used in Chapter 2 to benchmark (compute the running time) of a function?
+
+
+
+
+For each of the running time complexity bounds, define and give an example:
+
+constant:
+
+
+linear:
+
+
+quadratic:
+
+
+
+What does "Big O" notation mean?
+
+
+
+
+
+
+FOCUS QUESTIONS (Make sure you can answer these questions when you are done with the lab):
+
+
+
+Write a function that takes the two file names, and copies the first word of each line of the old file  to the new file:
+
+
+
+
+
+
+What is the running time of the below code fragment?  Give your answer in Big O notation:
+
+
+a = 5
+b = 6
+c = 10
+for i in range(n):
+    for j in range(n):
+        x = i * i
+        y = j * j
+        z = i * j
+for k in range(n):
+    w = a * k + 45
+    v = b * b
+d = 33
+
+
+
+What is the running time of the below code fragment?  Give your answer in Big O notation:
+
+for i in range(n):
+   for j in range(n):
+      for k in range(n):
+         k = 2 + 2
+
+
+Given the following code fragment, what is its Big O running time?
+
+test = 0
+for i in range(n):
+   for j in range(n):
+      test = test + i * j
+A. O(n)
+B. O(n^2)
+C. O(log n)
+D. O(n^3)
+
+
+Given the following code fragment what is its Big O running time?
+
+test = 0
+for i in range(n):
+   test = test + 1
+
+for j in range(n):
+   test = test - 1
+A. O(n)
+B. O(n^2)
+C. O(log n)
+D. O(n^3)

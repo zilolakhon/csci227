@@ -1,0 +1,154 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <title>Lab 8, CSci 227: Programming Methods, Hunter College</title>
+</head>
+<STYLE>A {text-decoration: none;}
+th, td { padding: 5px; }
+code {
+  background-color: #eeeeee;
+}
+.inline {
+  padding: 1px;
+}
+.blockcode {
+  border: 1px solid #999999;
+  display: block;
+  padding-left: 10px;
+  padding-top : 2px;
+  padding-bottom : 2px;
+  margin: 5px;
+}
+.datablock {
+  border: 1px solid #eeeeee;
+  display: block;
+  padding: 7px;
+  padding-top : 0px;
+  margin: 5px;
+}
+</STYLE>
+<body>
+
+
+<div style="margin: 15px;">
+    <span style= "float: left;font-size:larger"><a href="../spr24.html">CSci 227</a></span>
+    <span style= "float: right">
+      <a href="syl.html">Syllabus</a>&nbsp;&nbsp;&nbsp;
+      <a href="resources.html">Resources</a>&nbsp;&nbsp;&nbsp;
+      <a href="work.html">Coursework</a>
+    </span>
+</div>
+
+<br>
+<br>
+<hr>
+
+<div style="margin:50px">
+
+
+<h1>Laboratory Exercise 8
+  <br>CSci 227: Programming Methods<br>
+<a href="http://www.hunter.cuny.edu/csci">Department of Computer Science</a><br>
+<a href="https://hunter.cuny.edu">Hunter College</a>, <a href="https://www.cuny.edu">City University of New York</a><br>
+Fall 2024<br><br>
+</h1>
+
+
+
+<hr>
+
+
+
+
+<p><b>Learning Objectives:</b>
+  <ul>
+    <li>To understand the map abstract data type.
+    <li> To understand the performance of the implementations of basic linear data structures (stack, queue, deque, list, and map).</li>
+  </ul>
+</p>
+
+
+<p><b>Software Tools Needed:</b> Web browser to access textbook and an IDE (on-line or on computer) with core Python 3.6+ loaded.</p>
+
+<!--
+<p><b>Lab Notes:</b>  Download the <a href="lab8notes.txt">outline and focus questions</a> to guide you while working through this lab. 
+These are a useful tool for note taking and as well as studying for the quizzes and final exam. </p>
+
+-->
+
+
+<hr>
+
+
+<h3>Hashing & Map ADT's</h3>
+
+<p>In Section 5.5, the textbook introduces hashing and the Map ADT.  Work through the code in the section below: </p>
+
+<iframe src="https://runestone.academy/ns/books/published/pythonds3/SortSearch/Hashing.html" title="Textbook, Section 5.5:  Hashing" height="400" width="90%"></iframe></li>
+<br><br>
+
+
+<h3>Array Tricks</h3>
+
+<p>As we wrap up the section of our course on linear data types, let's look at other ways we can use the linear structure in efficiently solving the problems.</p>
+
+<p>Here's a classic question:
+<a href="https://leetcode.com/problems/find-all-duplicates-in-an-array/description/">442.  Find All Duplicates</a>:
+</p>
+
+<img src="lc_442_find_all_duplicates.png" height="200">
+
+
+<p>While we can use a dictionary or look-up table to solve this with linear additional space, can you use less space? </p>
+
+<p>The idea is to use the inputted array to store what you have seen before.  When we've seen the number, we'll multiply its box by -1.  Since lists 0-indexed and the numbers start with 1, we'll subtract 1 for the index.  If we see a box that's negative, then we know that it's a duplicate.</p>
+
+<p>Looping through the list:  <code>nums = [4,3,2,7,8,2,3,1]</code></p>
+  <ul>
+    <li>For 4: we'll set the 4th box to negative by multiplying <code>nums[4-1] *= -1</code> and the array:  <code>nums = [4,3,2,<b>-7</b>,8,2,3,1]</code> </li>
+    <li>For 3: we'll set the 3rd box to negative by multiplying <code>nums[3-1] *= -1</code> and the array:  <code>nums = [4,3,<b>-2</b>,-7,8,2,3,1]</code> </li>
+    <li>For 2: we'll set the 2nd box to negative by multiplying <code>nums[2-1] *= -1</code> and the array:  <code>nums = [4,-3,<b>-2</b>,-7,8,2,3,1]</code> </li>
+    <li>For 7: we'll set the 7th box to negative by multiplying  <code>nums[7-1] *= -1</code> and the array:  <code>nums = [4,-3,-2,-7,8,2,<b>-3</b>,1]</code> </li>
+    <li>For 8: we'll set the 8th box to negative by multiplying  <code>nums[8-1] *= -1</code> and the array:  <code>nums = [4,-3,-2,-7,8,2,-3,<b>-1</b>]</code> </li>
+    <li>For 2: <code>nums[2-1] < 0</code> so we've seen it before and add 2 to the duplicates list.</code> </li>
+    <li>For 3: <code>nums[3-1] < 0</code> so we've seen it before and add 3 to the duplicates list.</code> </li>
+    <li>For 1: we'll set the 1st box to negative by multiplying  <code>nums[1-1] *= -1</code> and the array:  <code>nums = [<b>-4</b>,-3,-2,-7,8,2,-3,-1]</code> </li>
+  </ul>
+
+<p>Next, write out the approach as pseudocode and then translate it into Python (see <a href="ps.html#ps22">Problem 22</a> and <a href="ps.html#ps23">Problem 23</a>).</p>
+
+
+
+
+<h2>Quizzes and Code Reviews</h2>
+
+There are weekly written quizzes and code reviews in 1001G, 11:30-5:30, Mondays-Fridays when classes are in session.  No appointments are needed for CSCI 227 students.  Make sure to complete Quiz 8 and Code Review 7 by Wednesday, 30 October.
+
+
+<h2>Additional Practice</h2>
+
+<p>For additional practice on core Python, see the HackerRank prepare series:</p>
+
+
+<blockquote><a href="https://www.hackerrank.com/domains/python">HackerRank:  Prepare  Python</a></blockquote>
+
+<p>
+Click the <code class="inline">Easy</code> option on the right hand menu, and work through their Python challenges.
+</p>
+
+<p>For more practice on using problems that use maps, here are some popular ones from LeetCode:</p>
+
+<ul>
+  <li><a href="https://leetcode.com/problems/find-all-duplicates-in-an-array/description/">LC 442</a> (Find All Duplicates in an Array).</li>
+  <li><a href="https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/">LC 448</a> (Find All Numbers Disappeared in an Array)</li>
+  <li><a href="https://leetcode.com/problems/count-prefix-and-suffix-pairs-i/description/">LC 3042</a> (Count Prefix and Suffix Pairs I)
+  </li>
+</ul>
+
+
+
+</div>
+</body>
+</html>
