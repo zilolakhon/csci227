@@ -1,17 +1,162 @@
-<div style="margin: 50pt">
-<h1>CSCI 227</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSCI 227</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-raised: #151b23;
+    --bg-hover: #1b2330;
+    --border: #262f3d;
+    --border-soft: #1e2632;
+    --text: #e6ebf1;
+    --text-dim: #9aa7b8;
+    --text-faint: #6b7788;
+    --py-blue: #6ba8dc;
+    --py-gold: #f4c542;
+    --radius: 10px;
+  }
 
-<h3>Spring 2025</h3>
-<ul>
-  <li><a href="https://zilolasam.github.io/csci227/spring25/spring25.html">CSci 227:</a> Programming Methods <br>
-  Lectures:  Wednesdays, 10:15am-11:30pm; Labs:  HN 1001G, Hunter College.</li>
+  * { box-sizing: border-box; }
 
-<h3>Fall 2025</h3>
-<ul>
-  <li><a href="https://zilolasam.github.io/csci227/fall25/fall25.html">CSci 227:</a> Programming Methods <br>
-  Lectures:  Wednesdays, 10:00am-11:15pm in 1001E; Labs:  HN 1001E, Hunter College.</li>
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 15.5px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
 
-<h3>Spring 2026</h3>
-<ul>
-  <li><a href="https://zilolasam.github.io/csci227/spring26/spring26.html">CSci 227:</a> Programming Methods <br>
-  Lectures:  Fridays, 10:00am-11:15pm in 1001E; Labs:  HN 1001E, Hunter College.</li>
+  a { color: var(--py-blue); text-decoration: none; transition: color .15s ease; }
+  a:hover { color: #9cc7ec; }
+  a:focus-visible { outline: 2px solid var(--py-gold); outline-offset: 2px; border-radius: 3px; }
+
+  .nav {
+    display: flex; align-items: center;
+    padding: 14px 28px;
+    background: rgba(13, 17, 23, .85);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .nav .brand {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600; font-size: 1.05rem; color: var(--text);
+  }
+  .nav .brand .prompt { color: var(--py-gold); }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px 80px; }
+
+  .hero { padding: 64px 0 28px; }
+  h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 10px;
+    letter-spacing: -.02em;
+  }
+  h1 .num { color: var(--py-blue); }
+  .hero .sub { color: var(--text-dim); margin: 0; }
+
+  .semester {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 18px 0;
+    transition: background .12s ease, border-color .12s ease;
+  }
+  .semester:hover { background: var(--bg-hover); border-color: #334052; }
+
+  .semester .term {
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: .74rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--py-gold);
+    border: 1px solid rgba(244, 197, 66, .35);
+    background: rgba(244, 197, 66, .07);
+    border-radius: 999px;
+    padding: 3px 12px;
+    margin-bottom: 10px;
+  }
+  .semester .course {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.15rem; font-weight: 600;
+    margin: 0 0 4px;
+  }
+  .semester .details {
+    color: var(--text-dim);
+    font-size: .92rem;
+    margin: 0;
+  }
+
+  footer {
+    border-top: 1px solid var(--border-soft);
+    margin-top: 60px; padding: 24px 0 0;
+    color: var(--text-faint);
+    font-size: .82rem;
+    font-family: "JetBrains Mono", monospace;
+    text-align: right;
+  }
+
+  @media (max-width: 640px) {
+    .nav { padding: 12px 16px; }
+    .hero { padding: 44px 0 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="brand"><span class="prompt">&gt;&gt;&gt;</span> CSci 227</span>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <h1><span class="num">CSci 227</span></h1>
+    <p class="sub">Programming Methods &middot; Hunter College, CUNY</p>
+  </header>
+
+  <div class="semester">
+    <span class="term">Fall 2026</span>
+    <p class="course"><a href="fall26/fall26.html">CSci 227: Programming Methods</a></p>
+    <p class="details">Lectures: Fridays, 10:00am&ndash;11:15am in 1001G HN; Labs: online (asynchronous), Hunter College.</p>
+  </div>
+
+
+  <div class="semester">
+    <span class="term">Spring 2026</span>
+    <p class="course"><a href="spring26/spring26.html">CSci 227: Programming Methods</a></p>
+    <p class="details">Lectures: Fridays, 10:00am&ndash;11:15pm in 1001E; Labs: HN 1001E, Hunter College.</p>
+  </div>
+
+
+  <div class="semester">
+    <span class="term">Fall 2025</span>
+    <p class="course"><a href="fall25/fall25.html">CSci 227: Programming Methods</a></p>
+    <p class="details">Lectures: Wednesdays, 10:00am&ndash;11:15pm in 1001E; Labs: HN 1001E, Hunter College.</p>
+  </div>
+
+
+  <div class="semester">
+    <span class="term">Spring 2025</span>
+    <p class="course"><a href="spring25/spring25.html">CSci 227: Programming Methods</a></p>
+    <p class="details">Lectures: Wednesdays, 10:15am&ndash;11:30pm; Labs: HN 1001G, Hunter College.</p>
+  </div>
+
+</div>
+
+<footer>zilolasam.github.io/csci227</footer>
+
+</body>
+</html>
