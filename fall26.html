@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSci 227: Programming Methods, Hunter College</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-raised: #151b23;
+    --bg-hover: #1b2330;
+    --border: #262f3d;
+    --border-soft: #1e2632;
+    --text: #e6ebf1;
+    --text-dim: #9aa7b8;
+    --text-faint: #6b7788;
+    --py-blue: #6ba8dc;
+    --py-gold: #f4c542;
+    --green: #7dcf8a;
+    --rose: #e8899a;
+    --violet: #b394e0;
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 15.5px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--py-blue); text-decoration: none; transition: color .15s ease; }
+  a:hover { color: #9cc7ec; }
+  a:focus-visible { outline: 2px solid var(--py-gold); outline-offset: 2px; border-radius: 3px; }
+
+  /* ---------- top nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 28px;
+    background: rgba(13, 17, 23, .85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .nav .brand {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600; font-size: 1.05rem; color: var(--text);
+  }
+  .nav .brand .prompt { color: var(--py-gold); }
+  .nav .links { display: flex; gap: 22px; font-size: .92rem; font-weight: 500; }
+  .nav .links a { color: var(--text-dim); }
+  .nav .links a:hover { color: var(--text); }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 64px 0 40px; }
+  .badge {
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: .78rem; letter-spacing: .08em;
+    color: var(--py-gold);
+    border: 1px solid rgba(244, 197, 66, .35);
+    background: rgba(244, 197, 66, .07);
+    border-radius: 999px;
+    padding: 4px 14px;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 14px;
+    letter-spacing: -.02em;
+  }
+  h1 .num { color: var(--py-blue); }
+  .hero .dept { color: var(--text-dim); font-size: 1rem; margin: 0 0 22px; }
+  .hero .dept a { color: var(--text-dim); border-bottom: 1px dotted var(--text-faint); }
+  .hero .dept a:hover { color: var(--text); }
+
+  .tldr {
+    font-family: "JetBrains Mono", monospace;
+    font-size: .92rem;
+    color: var(--text-dim);
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--py-gold);
+    border-radius: 6px;
+    padding: 14px 18px;
+    max-width: 640px;
+  }
+  .tldr .cm { color: var(--text-faint); }
+  .tldr .kw { color: var(--py-blue); }
+
+  .contact { margin-top: 20px; color: var(--text-dim); font-size: .95rem; }
+  .contact tt, tt {
+    font-family: "JetBrains Mono", monospace;
+    font-size: .88em;
+    color: var(--py-gold);
+    background: rgba(244, 197, 66, .08);
+    padding: 2px 6px; border-radius: 4px;
+  }
+
+  /* ---------- sections ---------- */
+  h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.45rem; font-weight: 600;
+    letter-spacing: -.01em;
+    margin: 56px 0 18px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--border-soft); }
+
+  .card {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+  }
+  .card ul { margin: 0; padding-left: 20px; }
+  .card li { margin: 10px 0; color: var(--text-dim); }
+  .card li::marker { color: var(--py-gold); }
+  .card li strong, .hybrid strong { color: var(--text); }
+
+  .structure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .structure-grid .cell {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+  .cell .label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--py-blue); margin-bottom: 6px;
+  }
+  .cell .detail { color: var(--text-dim); font-size: .93rem; }
+  .cell .detail a { font-weight: 500; }
+
+  .hybrid {
+    border-left: 3px solid var(--py-blue);
+    background: rgba(107, 168, 220, .06);
+    border-radius: 6px;
+    padding: 14px 18px;
+    color: var(--text-dim);
+    font-size: .95rem;
+  }
+
+  .note { color: var(--text-faint); font-style: italic; font-size: .9rem; margin: 0 0 16px; }
+
+  /* ---------- calendar table ---------- */
+  .table-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); }
+  table { border-collapse: collapse; width: 100%; min-width: 880px; font-size: .92rem; }
+  th {
+    font-family: "JetBrains Mono", monospace;
+    font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+    text-align: left; color: var(--text-faint);
+    background: var(--bg-raised);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-soft);
+    vertical-align: top;
+    color: var(--text-dim);
+  }
+  tr:last-child td { border-bottom: none; }
+  tbody tr { transition: background .12s ease; }
+  tbody tr:hover { background: var(--bg-hover); }
+
+  .week {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600; color: var(--text); white-space: nowrap;
+  }
+  .dates { font-family: "JetBrains Mono", monospace; font-size: .82rem; color: var(--text-faint); white-space: nowrap; }
+  td.topics { color: var(--text); min-width: 220px; }
+
+  .milestone td {
+    background: rgba(107, 168, 220, .07);
+    color: var(--py-blue);
+    font-family: "JetBrains Mono", monospace;
+    font-size: .82rem;
+  }
+  .noclass td { color: var(--text-faint); font-style: italic; }
+  .noclass .week, .noclass .dates { font-style: normal; }
+
+  /* coursework tags */
+  .tag {
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: .76rem; font-weight: 500;
+    padding: 2px 9px; margin: 2px 4px 2px 0;
+    border-radius: 5px;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+  .tag.lab   { color: var(--py-gold); border-color: rgba(244,197,66,.4);  background: rgba(244,197,66,.07); }
+  .tag.prog  { color: var(--green);   border-color: rgba(125,207,138,.4); background: rgba(125,207,138,.07); }
+  .tag.quiz  { color: var(--rose);    border-color: rgba(232,137,154,.4); background: rgba(232,137,154,.07); }
+  .tag.cr    { color: var(--violet);  border-color: rgba(179,148,224,.4); background: rgba(179,148,224,.07); }
+  .tag:hover { filter: brightness(1.25); }
+
+  td.reading { font-size: .85rem; max-width: 240px; }
+  td.reading a { color: var(--text-dim); border-bottom: 1px dotted var(--text-faint); }
+  td.reading a:hover { color: var(--text); }
+
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin: 14px 0 18px;
+    font-size: .8rem; color: var(--text-faint);
+    align-items: center;
+  }
+
+  footer {
+    border-top: 1px solid var(--border-soft);
+    margin-top: 70px; padding: 24px 28px;
+    color: var(--text-faint);
+    font-size: .82rem;
+    font-family: "JetBrains Mono", monospace;
+    text-align: right;
+  }
+
+  @media (max-width: 640px) {
+    .nav { padding: 12px 16px; }
+    .nav .links { gap: 14px; font-size: .85rem; }
+    .hero { padding: 44px 0 28px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="brand"><a href="index.html" style="color:inherit"><span class="prompt">&gt;&gt;&gt;</span> CSci 227</a></span>
+  <span class="links">
+    <a href="fall26/syl.html">Syllabus</a>
+    <a href="fall26/resources.html">Resources</a>
+    <a href="fall26/work.html">Coursework</a>
+  </span>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="badge">FALL 2026 &middot; HYBRID</span>
+    <h1><span class="num">CSci 227:</span><br>Programming Methods</h1>
+    <p class="dept">
+      <a href="http://www.hunter.cuny.edu/csci">Department of Computer Science</a> &middot;
+      <a href="https://hunter.cuny.edu">Hunter College</a> &middot;
+      <a href="https://www.cuny.edu">City University of New York</a>
+    </p>
+    <div class="tldr">
+      <span class="cm"># TL;DR:</span><br>
+      <span class="kw">Data structures &amp; algorithms</span> in Python for CS Minors.
+    </div>
+    <p class="contact">For questions about the course, write to: <tt>zs494 AT hunter cuny edu</tt>.</p>
+  </header>
+
+  <h2>Announcements</h2>
+  <div class="card">
+    <ul>
+      <li>This course is designed as a continuation of CSci 127 and aimed at computer science minors and others interested in strengthening their programming skills and knowledge of canonical data structures and algorithms. This course can be counted towards a computer science minor, but <strong>not</strong> towards the computer science major.</li>
+      <li>If you have taken the introductory programming course at Hunter (CSci 127), you can enroll directly via CUNYFirst without additional permissions. If you took the course elsewhere, reach out to a computer science advisor about what's needed to align your previous courses to Hunter courses on your CUNYFirst record.</li>
+    </ul>
+  </div>
+
+  <h2>Course Structure</h2>
+  <div class="structure-grid">
+    <div class="cell">
+      <div class="label">Lecture &middot; in person</div>
+      <div class="detail">Friday 10:00&ndash;11:15am, 1001G&nbsp;HN</div>
+    </div>
+    <div class="cell">
+      <div class="label">Lab &middot; online</div>
+      <div class="detail">Asynchronous &mdash; schedule below</div>
+    </div>
+    <div class="cell">
+      <div class="label">Quizzes &middot; in person</div>
+      <div class="detail">By appointment in 1001G Hunter North</div>
+    </div>
+    <div class="cell">
+      <div class="label">Code Reviews &middot; oral</div>
+      <div class="detail">By appointment in 1001G Hunter North</div>
+    </div>
+    <div class="cell">
+      <div class="label">Programming</div>
+      <div class="detail"><a href="fall26/ps.html">Programming Assignments</a></div>
+    </div>
+  </div>
+  <p class="hybrid">This is a <strong>HYBRID</strong> course, which means that, in place of a second weekly meeting, you are responsible for independently working through the weekly lab found in the &ldquo;Handouts&rdquo; column in the calendar below.</p>
+
+  <h2>Calendar</h2>
+  <p class="note">Tentative schedule, subject to change.</p>
+
+  <div class="table-scroll">
+  <table>
+    <thead>
+      <tr>
+        <th>Week</th>
+        <th>Dates</th>
+        <th>Topics</th>
+        <th>Handouts</th>
+        <th>Coursework</th>
+        <th>Reading</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td class="week">Week 1</td>
+        <td class="dates">8/28&ndash;8/29</td>
+        <td class="topics">Syllabus &amp; Class Policies; Recap of Primitive Data Types &amp; Control Structures: Conditionals &amp; Loops; Introduction to Collection Data Types: List, Set, Tuple, and Dictionaries</td>
+        <td>
+          <a class="tag lab" href="fall26/syl.html">Syllabus</a>
+          <a class="tag lab" href="fall26/lab1.html">Lab 1</a>
+        </td>
+        <td>
+          <a class="tag prog" href="fall26/ps.html#ps1">Programs 1&ndash;2</a>
+          <a class="tag quiz" href="fall26/work.html#q1">Quiz 1</a>
+          <a class="tag cr" href="fall26/work.html#cr1">Code Review 1</a>
+        </td>
+        <td class="reading"><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Sections 1.1&ndash;1.8.1, 1.10, 1.12 (Python recap)</td>
+      </tr>
+
+      <tr>
+        <td class="week">Week 2</td>
+        <td class="dates">8/30&ndash;9/5</td>
+        <td class="topics">More on Dictionaries &amp; Hashing; String Methods &amp; Traversal: Slices, List Comprehension, Formatting Strings (f-strings)</td>
+        <td><a class="tag lab" href="fall26/lab2.html">Lab 2</a></td>
+        <td>
+          <a class="tag prog" href="fall26/ps.html#ps3">Programs 3&ndash;5</a>
+          <a class="tag quiz" href="fall26/work.html#q2">Quiz 2</a>
+          <a class="tag cr" href="fall26/work.html#cr2">Code Review 2</a>
+        </td>
+        <td class="reading"><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Sections 1.8.1, 1.9 (Collection Data Types &amp; String I/O)</td>
+      </tr>
+
+      <tr class="noclass">
+        <td class="week">Week 3</td>
+        <td class="dates">9/6&ndash;9/12</td>
+        <td colspan="4">No class &mdash; Rosh Hashanah</td>
+      </tr>
+
+      <tr>
+        <td class="week">Week 4</td>
+        <td class="dates">9/13&ndash;9/19</td>
+        <td class="topics">File I/O; Introduction to Running Time Complexity</td>
+        <td><a class="tag lab" href="fall26/lab3.html">Lab 3</a></td>
+        <td>
+          <a class="tag prog" href="fall26/ps.html#ps6">Programs 6&ndash;7</a>
+          <a class="tag quiz" href="fall26/work.html#q3">Quiz 3</a>
+          <a class="tag cr" href="fall26/work.html#cr3">Code Review 3</a>
+        </td>
+        <td class="reading"><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Chapter 2 (running time);<br><a href="https://runestone.academy/ns/books/published/thinkcspy/Files/toctree.html">ThinkCS (127 textbook):</a> Chapter 11 (files)</td>
+      </tr>
+
+      <tr>
+        <td class="week">Week 5</td>
+        <td class="dates">9/20&ndash;9/26</td>
+        <td class="topics">Functions: Parameters, Return Values; Exception Handling; Recursion</td>
+        <td>
+          <a class="tag lab" href="fall26/lab4.html">Lab 4</a>
+          <a class="tag lab" href="https://trinket.io/python/01f45c336a">triangle.py</a>
+        </td>
+        <td>
+          <a class="tag prog" href="fall26/ps.html#ps8">Programs 8&ndash;12</a>
+          <a class="tag quiz" href="fall26/work.html#q4">Quiz 4</a>
+          <a class="tag cr" href="fall26/work.html#cr4">Code Review 4</a>
+        </td>
+        <td class="reading"><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Sections 1.11 &amp; 1.12 (Exception Handling &amp; Functions), Chapter 4 (Recursion)</td>
+      </tr>
+
+      <tr>
+        <td class="week">Week 6</td>
+        <td class="dates">9/27&ndash;10/3</td>
+        <td class="topics">Object Oriented Programming; Writing Proper Classes; Using Standard Libraries: Survey of numpy, pandas, plotly, scipy</td>
+        <td><a class="tag lab" href="fall26/lab5.html">Lab 5</a></td>
+        <td>
+          <a class="tag prog" href="fall26/ps.html#ps13">Programs 13&ndash;15</a>
+          <a class="tag quiz" href="fall26/work.html#q5">Quiz 5</a>
+          <a class="tag cr" href="fall26/work.html#cr5">Code Review 5</a>
+        </td>
+        <td class="reading"><a href="https://runestone.academy/ns/books/published//thinkcspy/ClassesBasics/toctree.html">Textbook:</a> Chapter 17 (Objects &amp; Classes),<br><a href="https://runestone.academy/ns/books/published//thinkcspy/Inheritance/01-PillarsOfOop.html">ThinkCS:</a> Chapter 19 (Pillars of OOP),<br><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Section 1.13 (OOP in Python)</td>
+      </tr>
+
+      <tr>
+        <td class="week">Week 7</td>
+        <td class="dates">10/4&ndash;10/10</td>
+        <td class="topics">Linear Data Structures: Array Implementations &amp; Linked Lists; Stacks</td>
+        <td><a class="tag lab" href="fall26/lab6.html">Lab 6</a></td>
+        <td>
+          <a class="tag prog" href="fall26/ps.html#ps16">Programs 16&ndash;18</a>
+          <a class="tag quiz" href="fall26/work.html#q6">Quiz 6</a>
+          <a class="tag cr" href="fall26/work.html#cr6">Code Review 6</a>
+        </td>
+        <td class="reading"><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Sections 3.1&ndash;9 (Linear Data Structures: Stacks)</td>
+      </tr>
+
+      <tr>
+        <td class="week">Week 8</td>
+        <td class="dates">10/11&ndash;10/17</td>
+        <td class="topics">More on Linear Data Structures: Queues &amp; Deques</td>
+        <td><a class="tag lab" href="fall26/lab7.html">Lab 7</a></td>
+        <td>
+          <a class="tag prog" href="fall26/ps.html#ps19">Programs 19&ndash;20</a>
+          <a class="tag quiz" href="fall26/work.html#q7">Quiz 7</a>
+          <a class="tag cr" href="fall26/work.html#cr7">Code Review 7</a>
+        </td>
+        <td class="reading"><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Sections 3.10&ndash;18 (Linear Data Structures: Queues)</td>
+      </tr>
+
+      <tr>
+        <td class="week">Week 9</td>
+        <td class="dates">10/18&ndash;10/24</td>
+        <td class="topics">Map Abstract Data Type: Dictionaries, Maps</td>
+        <td><a class="tag lab" href="fall26/lab8.html">Lab 8</a></td>
+        <td>
+          <a class="tag prog" href="fall26/ps.html#ps21">Programs 21&ndash;22</a>
+          <a class="tag quiz" href="fall26/work.html#q8">Quiz 8</a>
+          <a class="tag cr" href="fall26/work.html#cr8">Code Review 8</a>
+        </td>
+        <td class="reading"><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Sections 3.19&ndash;25 (Linear Data Structures: Lists)</td>
+      </tr>
+
+      <tr>
+        <td class="week">Week 10</td>
+        <td class="dates">10/25&ndash;10/31</td>
+        <td class="topics">Searching: Sequential and Binary Search; Searching Running Times</td>
+        <td><a class="tag lab" href="fall26/lab9.html">Lab 9</a></td>
+        <td>
+          <a class="tag prog" href="fall26/ps.html#ps23">Programs 23&ndash;24</a>
+          <a class="tag quiz" href="fall26/work.html#q9">Quiz 9</a>
+          <a class="tag cr" href="fall26/work.html#cr9">Code Review 9</a>
+        </td>
+        <td class="reading"><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Chapters 3 &amp; 5 (Linear Data Structures &amp; Searching and Sorting)</td>
+      </tr>
+
+      <tr>
+        <td class="week">Week 11</td>
+        <td class="dates">11/1&ndash;11/7</td>
+        <td class="topics">Sorting: 2 Basic Sorts; Using Built-In Python Sort (timsort); Sorting Running Times</td>
+        <td><a class="tag lab" href="fall26/lab10.html">Lab 10</a></td>
+        <td>
+          <a class="tag prog" href="fall26/ps.html#ps25">Programs 25&ndash;26</a>
+          <a class="tag quiz" href="fall26/work.html#q10">Quiz 10</a>
+          <a class="tag cr" href="fall26/work.html#cr10">Code Review 10</a>
+        </td>
+        <td class="reading"><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Chapter 5 (Searching and Sorting)</td>
+      </tr>
+
+      <tr>
+        <td class="week">Week 12</td>
+        <td class="dates">11/8&ndash;11/14</td>
+        <td class="topics">Tree ADT &amp; Heaps</td>
+        <td><a class="tag lab" href="fall26/lab11.html">Lab 11</a></td>
+        <td>
+          <a class="tag prog" href="fall26/ps.html#ps25">Programs 25&ndash;26</a>
+          <a class="tag quiz" href="fall26/work.html#q11">Quiz 11</a>
+          <a class="tag cr" href="fall26/work.html#cr11">Code Review 11</a>
+        </td>
+        <td class="reading"><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Chapter 6 (Trees)</td>
+      </tr>
+
+      <tr>
+        <td class="week">Week 13</td>
+        <td class="dates">11/15&ndash;11/21</td>
+        <td class="topics">Binary Search Trees &amp; Graph ADT</td>
+        <td><a class="tag lab" href="fall26/lab12.html">Lab 12</a></td>
+        <td>
+          <a class="tag prog" href="fall26/ps.html#ps27">Programs 27&ndash;28</a>
+          <a class="tag quiz" href="fall26/work.html#q12">Quiz 12</a>
+          <a class="tag cr" href="fall26/work.html#cr12">Code Review 12</a>
+        </td>
+        <td class="reading"><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Chapter 7 (Graphs)</td>
+      </tr>
+
+      <tr class="noclass">
+        <td class="week">Week 14</td>
+        <td class="dates">11/22&ndash;11/28</td>
+        <td colspan="4">No class &mdash; Thanksgiving</td>
+      </tr>
+
+            <tr>
+        <td class="week">Week 15</td>
+        <td class="dates">11/29&ndash;12/5</td>
+        <td class="topics">More on Graphs; Current Topics in Algorithms; Review</td>
+        <td><a class="tag lab" href="fall26/lab13.html">Lab 13</a></td>
+        <td>
+          <a class="tag prog" href="fall26/ps.html#ps29">Programs 29&ndash;30</a>
+          <a class="tag quiz" href="fall26/work.html#q13">Quiz 13</a>
+          <a class="tag cr" href="fall26/work.html#cr13">Code Review 13</a>
+        </td>
+        <td class="reading"><a href="https://runestone.academy/ns/books/published/pythonds3/index.html">Textbook:</a> Chapter 7 (Graphs)</td>
+      </tr>
+
+      <tr>
+        <td class="week">Week 16</td>
+        <td class="dates">12/6&ndash;12/12</td>
+        <td class="topics">Review (Mock Exam)</td>
+        <td></td>
+        <td></td>
+        <td class="reading"></td>
+      </tr>
+
+      <tr class="milestone">
+        <td colspan="2">Finals &middot; 12/15&ndash;12/21</td>
+        <td colspan="4"><a href="fall26/work.html#final">Final Exam</a></td>
+      </tr>
+
+    </tbody>
+  </table>
+  </div>
+
+  <div class="legend">
+    <span>Legend:</span>
+    <span class="tag lab">Labs &amp; handouts</span>
+    <span class="tag prog">Programs</span>
+    <span class="tag quiz">Quizzes</span>
+    <span class="tag cr">Code reviews</span>
+  </div>
+
+</div>
+
+<footer>(This file was last modified on 11 August 2026.)</footer>
+
+</body>
+</html>
